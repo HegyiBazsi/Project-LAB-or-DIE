@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>P-LID</title>
+
+<!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/indexstyle.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+
+
+<body id="top" class="scrollspy">
+<!--MAIN NAV BAR-->
+  <nav>
+    <div class="nav-wrapper">
+      <a href="!" class="brand-logo center">P-LID</a>
+<!--BUTTONS-->
+      <ul class="right hide-on-med-and-down">
+<!--DROPDOWN-->
+        <a href="" class="dropdown-button btn" data-activates="dropdown1">Ügyfélkapu</a>
+<!-- DROPDOWN STRUCTURE -->
+        <ul id='dropdown1' class='dropdown-content'>
+          <li class="divider"></li>
+  			  <li><a href="./sign_in.html"><i class="material-icons">input</i>Bejelentkezés</a></li>
+  			  <li class="divider"></li>
+          <li><a href="./reg.html"><i class="material-icons">person_add</i>Regisztáció</a></li>
+          <li class="divider"></li>
+        </ul>
+
+              <a href="index.html" class="btn-floating  btn-large"><i class="large material-icons">home</i></a>
+      </ul>
+
+
+
+<!--SIDE BAR-->
+			<nav class="white" role="navigation">
+				<div class="nav-wrapper container">
+					<ul id="slide-out" class="side-nav">
+            <li><div class="divider"></div></li>
+            <li><a href="index.html"><i class="material-icons">home</i>Főoldal</a></li>
+						<li><div class="divider"></div></li>
+						<li><a href="sign_in.html"><i class="material-icons">input</i>Bejelentkezés</a></li>
+						<li><div class="divider"></div></li>
+						<li><a href="reg.html"><i class="material-icons">person_add</i>Regisztáció</a></li>
+						<li><div class="divider"></div></li>
+            <li><a href="internet.html"><i class="material-icons">wifi_tethering</i>Internet</a></li>
+						<li><div class="divider"></div></li>
+            <li><a href="tv.html"><i class="material-icons">personal_video</i>Televízió</a></li>
+						<li><div class="divider"></div></li>
+            <li><a href="telefon.html"><i class="material-icons">call</i>Telefon</a></li>
+						<li><div class="divider"></div></li>
+            <li><a href="all_in_one.html"><i class="material-icons">looks_3</i>All-in-one</a></li>
+						<li><div class="divider"></div></li>
+					</ul>
+					<a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
+				</div>
+			</nav>
+    </div>
+  </nav>
+<!--END OF NAVBAR-->
+
+<!--TAP TARGET-->
+  <div class="fixed-action-btn" style="bottom:20px;right:20px">
+    <a id="menu" onclick="$('.tap-target').tapTarget('open')" class="waves-effect waves-light btn btn-floating btn-large cyan">
+		    <i class="material-icons amber">lightbulb_outline</i>
+    </a>
+  </div>
+
+  <div class="tap-target amber" data-activates="menu">
+	   <div class="tap-target-content black-text">
+       <h5 align="right">Gondja támadt?</h5>
+        <p class="black-text" align="right">Bármilyen felmerülő hiba, probléma, vagy kérdés esetén hívja ingyenes ügyfélszolgálatunkat.
+									Kollégáink készséggel várják hívását.</p>
+			  <p align="right">Telefonszámunk: 06-20-123-4567</p>
+      </div>
+  </div>
+
+<!--FIRST_BANNER-->
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+	     <div class="container">
+         <br><br>
+				 <h1 class="header center white-text-text text-lighten-2">Professzionális-Levelezés és Internet Direktben</h1>
+				 <div class="row center">
+				       <h5 class="header col s12 light">A modern telekommunikációs szolgáltató</h5>
+				 </div>
+			   <br><br>
+			</div>
+		</div>
+		<div class="parallax"><img src="img/third1.jpg" alt="Unsplashed background img 1"></div>
+	</div>
+
+
+<!--INTRODUCTION-->
+  <div id="Bemutatkozás" class="section scrollspy">
+    <div class="container">
+      <div class="section">
+        <div class="row">
+          <div class="col s12 center">
+            <h3><i class="mdi-content-send brown-text"></i></h3>
+            <h4>Bemutatkozás</h4>
+            <p class="justify-align light">
+              A P-LID 2000-ben alakult, akkor még ismeretlen vállalatként, mára viszont vezető szerepet tölt be az IT és telekommunikáció területén.
+              A vállalat létrejötte a 4 tulajdonos elgondolása és megvalósításának lenyomata, akik megfelelő szakértelemmel, alázattal és tudatosan végzik munkájukat.
+              Problémamegoldó képességük kimagasló és minden területen helytállnak, segítik egymás munkáját.
+             </p>
+             <p class="justify-align light">
+               A 4 tag még az egyetemen ismerte meg egymást, aminek elvégzése után úgy döntöttek, hogy közös vállalkozásba kezdenek. A kezdeti nehézségek ellenére
+               kitartó munkával felküzdötték magukat Magyarország egyik vezető IT szolgáltatójává. Köszönjük, hogy rán szántak pár percet a cég megismerésére, és
+               reméljük hogy hamarosan ügyfeleinkként tekinthetünk Önökre. Ha bármiféle kérdésük felmerült volna, kérjük hívják ingyenes
+               <a onclick="$('.tap-target').tapTarget('open')">ügyfélszolgálatunkat</a>.
+              </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="divider"></div>
+
+<!--TEAM-->
+    <div class="container">
+        <h2 class="header text_b"> Csapatunk </h2>
+<!--ROWS-->
+        <div class="row">
+            <div class="col s12 m3">
+<!--FIRST COL-->
+                <div class="card card-avatar">
+<!--FANCY IMG-->
+                    <div class="waves-effect waves-block waves-light">
+                        <img class="activator" src="img/flash.png">
+                    </div>
+<!--TEXT-->
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">Hegyi Balázs <br/>
+                            <small><em><a class="red-text text-darken-1" href="#">Nyilvántartás és hálózat</a></em></small>
+                        </span>
+                        <p>
+                          <h6>
+                            Személy szerint a terepen dolgozok, hálózatot tervezek és telepítek,
+                            majd konfigurálom is azt. Meghibásodás esetén igykeszem minden szaktudásommal javítani a hibát.
+                          </h6>
+                          <br>
+                          <i class="material-icons">mail_outline</i> E-mail: godofthenet@plid.com
+                          <br>
+                          <i class="material-icons">call</i> Telefon: 06-10-589-4472
+                          <br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col s12 m3">
+<!--SECONF COL-->
+                <div class="card card-avatar">
+<!--FANCY IMG-->
+                    <div class="waves-effect waves-block waves-light">
+                        <img class="activator" src="img/catwoman.png">
+                    </div>
+<!--TEXT-->
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">Pap Réka <br/>
+                            <small><em><a class="red-text text-darken-1" href="#">Marketing és pénzügy</a></em></small></span>
+                            <p>
+                                <h6>
+                                  A marketing és számviteli feladatokat látom el. Kiállítom, elkönyvelem a számlákat, bizonylatokat.
+                                  A vállalat tevékenységeit segítem a marketingen keresztül.
+                                </h6>
+                                <br>
+                                <i class="material-icons">mail_outline</i> E-mail: catwoman@plid.com
+                          		  <br>
+                          		  <i class="material-icons">call</i> Telefon: 06-10-876-1967
+                                <br>
+                            </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col s12 m3">
+<!--THIRD COL-->
+                <div class="card card-avatar">
+<!--FANCY IMG-->
+                    <div class="waves-effect waves-block waves-light">
+                        <img class="activator" src="img/robin.png" >
+                    </div>
+<!--TEXT-->
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">Kápli Gergely<br/>
+                            <small><em><a class="red-text text-darken-1" href="#">Rendszergazda</a></em></small></span>
+                            <p>
+                                <h6>
+                                  A cégen belül a rendszergazda szerepét töltöm be. Általában telepítek, és üzemeltetem a szervereket és más számítógépes rendszereket.
+                                </h6>
+                                <br>
+                                <i class="material-icons">mail_outline</i> E-mail: gery77@plid.com
+                          		  <br>
+                          		  <i class="material-icons">call</i> Telefon: 06-10-325-7868
+                                <br>
+                            </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col s12 m3">
+<!--FOURTH COL-->
+                <div class="card card-avatar">
+<!--FANCY IMG-->
+                    <div class="waves-effect waves-block waves-light">
+                        <img class="activator" src="img/capt.png">
+                    </div>
+<!--TEXT-->
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">Rádli Richárd <br/>
+                            <small><em><a class="red-text text-darken-1" href="#">Web Design</a></em></small></span>
+                        <p>
+                            <h6>A weboldalért vagyok felelős, mind back-end, mind front-end részről.
+                                Rendszerint jómagam fejlesztem, és javítom az oldalt, a megrendelői preferenciáknak megfelelően.
+                            </h6>
+                            <br>
+                            <i class="material-icons">mail_outline</i> E-mail: csibe78@plid.com
+                      		  <br>
+                      		  <i class="material-icons">call</i> Telefon: 06-10-321-4467
+                            <br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div><!--ROWS-->
+      </div><!--CONTAINER-->
+
+<!--FOOTER-->
+  <footer class="page-footer teal">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+				 <h5 class="white-text">Kapcsolat</h5>
+			  </div>
+      </div>
+		  <i class="material-icons">room</i> Cím: 8200, Veszprém Egyetem utca 2.
+		  <br>
+		  <i class="material-icons">mail_outline</i> E-mail: info@plid.com
+		  <br>
+		  <i class="material-icons">call</i> Telefon: 06-10-123-4567
+      <br>
+		  <i class="material-icons">alarm</i> Nyitvatartás: H-P 8-12 / 13-17
+    </div>
+	  <br>
+    <div class="footer-copyright">
+      <div class="container">
+        Made by <a class="brown-text text-lighten-4">Projekt Lab or Die</a>
+      </div>
+    </div>
+  </footer>
+
+<!--  SCRIPTS -->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>
