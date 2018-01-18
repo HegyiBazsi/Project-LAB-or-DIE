@@ -68,7 +68,7 @@ form#login-form {
   width: 100%;
 }
 
-/*FLOATING BUTTON */
+/*FLOATING BUTTON BACK*/
 #floating-button{
   width: 55px;
   height: 55px;
@@ -77,6 +77,19 @@ form#login-form {
   position: fixed;
   bottom: 30px;
   left: 30px;
+  cursor: pointer;
+  box-shadow: 0px 2px 5px #666;
+}
+
+/*FLOATING BUTTON LOG IN*/
+#floating-button-login{
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: #FFAB91;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
   cursor: pointer;
   box-shadow: 0px 2px 5px #666;
 }

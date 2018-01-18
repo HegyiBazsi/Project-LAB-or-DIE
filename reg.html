@@ -23,7 +23,7 @@
 				<label class="label-control">
 					<span class="label-text"><i class="material-icons">person</i> Felhasználó név</span>
 				</label>
-				<input type="email" name="email" class="form-control" />
+				<input type="text" name="text" class="form-control" />
 			</div>
 			
 <!--PASSWORD-->
@@ -55,7 +55,7 @@
 				<label class="label-control">
 					<span class="label-text"><i class="material-icons">call</i>Telefon</span>
 				</label>
-				<input type="email" name="email" class="form-control" />
+				<input type="tel" name="tel" class="form-control" />
 			</div>
 			
 <!--DATE-->
@@ -63,14 +63,23 @@
 			  <label class="label-control">
 				<span class="label-text"><i class="material-icons">date_range</i> Születési dátum</span>
 			  </label>
-			  <input type="password" name="password" class="form-control" />
+			  <input type="date" name="date" class="form-control" />
 			</div>
+			
+<!--REG-->
 			<input type="submit" value="Regisztráció" class="btn" />
-
+			
 <!--FLOATING BUTTON BACK-->
 			<div id="container-floating">
-			  <div id="floating-button" data-toggle="tooltip" data-placement="left" data-original-title="Create" onclick="newmail()">
+			  <div id="floating-button" data-toggle="tooltip" data-placement="left" data-original-title="Create" onclick="">
 				<a href="index.html"><p class="plus"><i class="material-icons">arrow_back</i></p></a>
+			  </div>
+			</div>
+			
+<!--FLOATING LOG IN-->			
+			<div id="container-floating">
+			  <div id="floating-button-login" data-toggle="tooltip" data-placement="right" data-original-title="Create" onclick="">
+				<a href="sign_in.html"><p class="plus"><i class="material-icons">input</i></p></a>
 			  </div>
 			</div>
 		</form>
