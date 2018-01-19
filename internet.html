@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>P-LID</title>
+
+<!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/indexstyle.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+</head>
+  <body>
+    <nav>
+  		<div class="nav-wrapper">
+  			<a href="!" class="brand-logo center">P-LID</a>
+  <!--BUTTONS-->
+  			<ul class="right hide-on-med-and-down">
+  <!--DROPDOWN-->
+  				<a href="" class="dropdown-button btn" data-activates="dropdown1">Ügyfélkapu</a>
+  <!-- DROPDOWN STRUCTURE -->
+  				<ul id='dropdown1' class='dropdown-content'>
+  					<li class="divider"></li>
+  					<li><a href="./sign_in.html"><i class="material-icons">input</i>Bejelentkezés</a></li>
+  					<li class="divider"></li>
+  					<li><a href="./reg.html"><i class="material-icons">person_add</i>Regisztáció</a></li>
+  					<li class="divider"></li>
+  				</ul>
+  				<a href="index.html" class="btn-floating  btn-large"><i class="large material-icons">home</i></a>
+  			</ul>
+
+  <!--SIDE BAR-->
+  			<nav class="white" role="navigation">
+  				<div class="nav-wrapper container">
+  					<ul id="slide-out" class="side-nav">
+  						<li><div class="divider"></div></li>
+  						<li><a href="index.html" ><i class="material-icons">home</i>Főoldal</a></li>
+  						<li><div class="divider"></div></li>
+  						<li><a href="sign_in.html"><i class="material-icons">input</i>Bejelentkezés</a></li>
+  						<li><div class="divider"></div></li>
+  						<li><a href="reg.html"><i class="material-icons">person_add</i>Regisztáció</a></li>
+  						<li><div class="divider"></div></li>
+  						<li><a href="internet.html"><i class="material-icons">wifi_tethering</i>Internet</a></li>
+  						<li><div class="divider"></div></li>
+  						<li><a href="tv.html"><i class="material-icons">personal_video</i>Televízió</a></li>
+  						<li><div class="divider"></div></li>
+  						<li><a href="telefon.html"><i class="material-icons">call</i>Telefon</a></li>
+  						<li><div class="divider"></div></li>
+  						<li><a href="all_in_one.html"><i class="material-icons">looks_3</i>All-in-one</a></li>
+  						<li><div class="divider"></div></li>
+  					</ul>
+  					<a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
+  				</div>
+  			</nav>
+  		</div>
+  	</nav>
+
+
+    <div class="fixed-action-btn" style="bottom:20px;right:20px">
+  		<a id="menu" onclick="$('.tap-target').tapTarget('open')" class="waves-effect waves-light btn btn-floating btn-large cyan">
+  			<i class="material-icons amber">lightbulb_outline</i>
+  		</a>
+  	</div>
+
+  	<div class="tap-target amber" data-activates="menu">
+  		<div class="tap-target-content black-text">
+  			<h5 align="right">Gondja támadt?</h5>
+  			<p class="black-text" align="right">Bármilyen felmerülő hiba, probléma, vagy kérdés esetén hívja ingyenes ügyfélszolgálatunkat.
+  												Kollégáink készséggel várják hívását.
+  			</p>
+  			<p align="right">Telefonszámunk: 06-20-123-4567</p>
+  		</div>
+  	</div>
+
+    <!--FIRST_BANNER-->
+    	<div id="index-banner" class="parallax-container">
+    		<div class="section no-pad-bot">
+    			<div class="container">
+    			<br><br>
+    				<h1 class="header center teal-text text-lighten-2">Professzionális-Levelezés és Internet Direktben</h1>
+    				<div class="row center">
+    					<h5 class="header col s12 light"><br><br>A modern telekommunikációs szolgáltató</h5>
+    				</div>
+
+    				<br><br>
+    			</div>
+    		</div>
+    		<div class="parallax"><img src="https://i.pinimg.com/originals/19/57/a4/1957a42f33fa8b5c543527213f580c3c.jpg" alt="Unsplashed background img 1"></div>
+    	</div>
+
+      <div id="Bemutatkozás" class="section scrollspy">
+    		<div class="container">
+    			<div class="section">
+    				<div class="row">
+    					<div class="col s12 center">
+    						<h3><i class="mdi-content-send brown-text"></i></h3>
+    						<h4>Internet</h4>
+    						<p class="light" align="justify">
+    							Cégünk az internet csomagok széles palettáját kínálja. Legyen szó akár alacsonyabb,
+                  vagy akár Gigabites sávszélességről, nálunk garantáltan mindent megtalál. UTP kábeltől az üvegszálig, mindenben otthon vagyunk.
+    						</p>
+    						<p class="light" align="justify">
+                  Mindegy melyik csomagunkat választja, garantáltan elégedett lesz. Csomagjainkban az alábbiak közösek:
+                  <br>
+                  <p align="justify">
+                  <i class="material-icons" >email</i>&nbsp; 6 + 6x5 alias email postafiók <br>
+                  <i class="material-icons" >sd_storage</i>&nbsp; 5GB e-mail tárhely postafiókonként<br>
+                  <i class="material-icons" >storage</i>&nbsp; 1 GB FTP tárhely<br>
+                  <i class="material-icons" >router</i>&nbsp; Cisco router<br>
+                  <i class="material-icons" >wifi</i>&nbsp; P-LID Wi-Free hozzáférés<br>
+                  </p>
+    						</p>
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+
+      <div class="divider"></div>
+
+<!--Packages-->
+      <div class="container">
+        <h2 class="header text_b">Csomagok </h2>
+        <h4>UTP kábeles csomagok</h4>
+<!--FIRST RAW-->
+        <div class="row">
+<!--FIRST COL-->
+            <div class="col s12 m4 l4">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="img/30mbits.png">
+                    </div>
+                    <div class="card-content">
+                        <h5>30 Mbit/s - 5 Mbit/s</h5>
+                        <span class="card-title activator grey-text text-darken-4">Részletek és vásárlás
+                          <i class="material-icons">keyboard_arrow_up</i>
+                        </span>
+
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Részletek
+                          <i class="material-icons">keyboard_arrow_down</i>
+                        </span>
+                        <div class="divider"></div>
+                        <p><i class="material-icons">file_download</i> &nbsp; Letöltési sebesség</p>
+                        <p>Elméleti letöltési sebesség: 30 Mbit/s</p>
+                        <p>Garantált letöltési sebessg: 5 Mbit/s</p>
+                        <div class="divider"></div>
+                        <p><i class="material-icons">file_upload</i> &nbsp; Feltöltési sebesség</p>
+                        <p>Elméleti feltöltési sebesség: 5 Mbit/s</p>
+                        <p>Garantált feltöltési sebessg: 1 Mbit/s</p>
+                        <div class="divider"></div>
+                        <p><i class="material-icons">attach_money</i> &nbsp; Árak</p>
+                        <p>1 év hűségidővel: 2000 Ft/hó</p>
+                        <p>2 év hűségidővel: 1000 Ft/hó</p>
+                        <br>
+                        <a href="#" class="btn-large waves-effect waves-light teal lighten-1 pulse">Megveszem</a>
+                    </div>
+                </div>
+            </div>
+<!--SECOND COL-->
+            <div class="col s12 m4 l4">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="img/50mbits.png">
+                    </div>
+                    <div class="card-content">
+                        <h5>50 Mbit/s - 10 Mbit/s</h5>
+                        <span class="card-title activator grey-text text-darken-4">Részletek és vásárlás
+                          <i class="material-icons">keyboard_arrow_up</i>
+                        </span>
+
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Részletek
+                          <i class="material-icons">keyboard_arrow_down</i>
+                        </span>
+                        <div class="divider"></div>
+                        <p><i class="material-icons">file_download</i> &nbsp; Letöltési sebesség</p>
+                        <p>Elméleti letöltési sebesség: 50 Mbit/s</p>
+                        <p>Garantált letöltési sebessg: 10 Mbit/s</p>
+                        <div class="divider"></div>
+                        <p><i class="material-icons">file_upload</i> &nbsp; Feltöltési sebesség</p>
+                        <p>Elméleti feltöltési sebesség: 10 Mbit/s</p>
+                        <p>Garantált feltöltési sebessg: 2 Mbit/s</p>
+                        <div class="divider"></div>
+                        <p><i class="material-icons">attach_money</i> &nbsp; Árak</p>
+                        <p>1 év hűségidővel: 3000 Ft/hó</p>
+                        <p>2 év hűségidővel: 1500 Ft/hó</p>
+                        <br>
+                        <a href="#" class="btn-large waves-effect waves-light teal lighten-1 pulse">Megveszem</a>
+                    </div>
+                </div>
+            </div>
+<!--THIRD COL-->
+            <div class="col s12 m4 l4">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="img/100mbits.png">
+                    </div>
+                    <div class="card-content">
+                        <h5>100 Mbit/s - 20 Mbit/s</h5>
+                        <span class="card-title activator grey-text text-darken-4">Részletek és vásárlás
+                          <i class="material-icons">keyboard_arrow_up</i>
+                        </span>
+
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Részletek
+                          <i class="material-icons">keyboard_arrow_down</i>
+                        </span>
+                        <div class="divider"></div>
+                        <p><i class="material-icons">file_download</i> &nbsp; Letöltési sebesség</p>
+                        <p>Elméleti letöltési sebesség: 100 Mbit/s</p>
+                        <p>Garantált letöltési sebessg: 20 Mbit/s</p>
+                        <div class="divider"></div>
+                        <p><i class="material-icons">file_upload</i> &nbsp; Feltöltési sebesség</p>
+                        <p>Elméleti feltöltési sebesség: 20 Mbit/s</p>
+                        <p>Garantált feltöltési sebessg: 4 Mbit/s</p>
+                        <div class="divider"></div>
+                        <p><i class="material-icons">attach_money</i> &nbsp; Árak</p>
+                        <p>1 év hűségidővel: 4000 Ft/hó</p>
+                        <p>2 év hűségidővel: 2000 Ft/hó</p>
+                        <br>
+                        <a href="#" class="btn-large waves-effect waves-light teal lighten-1 pulse">Megveszem</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+<!--SECOND RAW-->
+        <div class="row">
+        <h4>Üvegszálas csomagok</h4>
+<!--FOURTH COL-->
+            <div class="col s12 m4 l4">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="img/300mbits.png">
+                    </div>
+                    <div class="card-content">
+                        <h5>300 Mbit/s - 50 Mbit/s</h5>
+                        <span class="card-title activator grey-text text-darken-4">Részletek és vásárlás
+                          <i class="material-icons">keyboard_arrow_up</i>
+                        </span>
+
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Részletek
+                          <i class="material-icons">keyboard_arrow_down</i>
+                        </span>
+                        <div class="divider"></div>
+                        <p><i class="material-icons">file_download</i> &nbsp; Letöltési sebesség</p>
+                        <p>Elméleti letöltési sebesség: 300 Mbit/s</p>
+                        <p>Garantált letöltési sebessg: 50 Mbit/s</p>
+                        <div class="divider"></div>
+                        <p><i class="material-icons">file_upload</i> &nbsp; Feltöltési sebesség</p>
+                        <p>Elméleti feltöltési sebesség: 50 Mbit/s</p>
+                        <p>Garantált feltöltési sebessg: 10 Mbit/s</p>
+                        <div class="divider"></div>
+                        <p><i class="material-icons">attach_money</i> &nbsp; Árak</p>
+                        <p>1 év hűségidővel: 5000 Ft/hó</p>
+                        <p>2 év hűségidővel: 2500 Ft/hó</p>
+                        <br>
+                        <a href="#" class="btn-large waves-effect waves-light teal lighten-1 pulse">Megveszem</a>
+                    </div>
+                </div>
+            </div>
+<!--FIFTH COL-->
+            <div class="col s12 m4 l4">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="img/500mbits.png">
+                    </div>
+                    <div class="card-content">
+                        <h5>500 Mbit/s - 100 Mbit/s</h5>
+                        <span class="card-title activator grey-text text-darken-4">Részletek és vásárlás
+                          <i class="material-icons">keyboard_arrow_up</i>
+                        </span>
+
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Részletek
+                          <i class="material-icons">keyboard_arrow_down</i>
+                        </span>
+                        <div class="divider"></div>
+                        <p><i class="material-icons">file_download</i> &nbsp; Letöltési sebesség</p>
+                        <p>Elméleti letöltési sebesség: 500 Mbit/s</p>
+                        <p>Garantált letöltési sebessg: 100 Mbit/s</p>
+                        <div class="divider"></div>
+                        <p><i class="material-icons">file_upload</i> &nbsp; Feltöltési sebesség</p>
+                        <p>Elméleti feltöltési sebesség: 100 Mbit/s</p>
+                        <p>Garantált feltöltési sebessg: 20 Mbit/s</p>
+                        <div class="divider"></div>
+                        <p><i class="material-icons">attach_money</i> &nbsp; Árak</p>
+                        <p>1 év hűségidővel: 6000 Ft/hó</p>
+                        <p>2 év hűségidővel: 3000 Ft/hó</p>
+                        <br>
+                        <a href="#" class="btn-large waves-effect waves-light teal lighten-1 pulse">Megveszem</a>
+                    </div>
+                </div>
+            </div>
+<!--SIXTH COL-->
+            <div class="col s12 m4 l4">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="img/1000mbits.png">
+                    </div>
+                    <div class="card-content">
+                        <h5>1000 Mbit/s - 200 Mbit/s</h5>
+                        <span class="card-title activator grey-text text-darken-4">Részletek és vásárlás
+                          <i class="material-icons">keyboard_arrow_up</i>
+                        </span>
+
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Részletek
+                          <i class="material-icons">keyboard_arrow_down</i>
+                        </span>
+                        <div class="divider"></div>
+                        <p><i class="material-icons">file_download</i> &nbsp; Letöltési sebesség</p>
+                        <p>Elméleti letöltési sebesség: 1000 Mbit/s</p>
+                        <p>Garantált letöltési sebessg: 200 Mbit/s</p>
+                        <div class="divider"></div>
+                        <p><i class="material-icons">file_upload</i> &nbsp; Feltöltési sebesség</p>
+                        <p>Elméleti feltöltési sebesség: 200 Mbit/s</p>
+                        <p>Garantált feltöltési sebessg: 40 Mbit/s</p>
+                        <div class="divider"></div>
+                        <p><i class="material-icons">attach_money</i> &nbsp; Árak</p>
+                        <p>1 év hűségidővel: 7000 Ft/hó</p>
+                        <p>2 év hűségidővel: 3500 Ft/hó</p>
+                        <br>
+                        <a href="#" class="btn-large waves-effect waves-light teal lighten-1 pulse">Megveszem</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--FOOTER-->
+    	<footer class="page-footer teal">
+    		<div class="container">
+    			<div class="row">
+    				<div class="col l6 s12">
+    					<h5 class="white-text">Kapcsolat</h5>
+    				</div>
+    			</div>
+    			<i class="material-icons">room</i> Cím: 8200, Veszprém Egyetem utca 2.
+    			<br>
+    			<i class="material-icons">mail_outline</i> E-mail: info@plid.com
+    			<br>
+    			<i class="material-icons">call</i> Telefon: 06-10-123-4567
+    			<br>
+    			<i class="material-icons">alarm</i> Nyitvatartás: H-P 8-12 / 13-17
+    		</div>
+    		<br>
+    		<div class="footer-copyright">
+    			<div class="container">
+    				Made by <a class="brown-text text-lighten-4">Projekt Lab or Die</a>
+    			</div>
+    		</div>
+    	</footer>
+
+    <!--  SCRIPTS -->
+    	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    	<script src="js/materialize.js"></script>
+    	<script src="js/init.js"></script>
+  </body>
+</html>
