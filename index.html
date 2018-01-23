@@ -16,9 +16,10 @@
 <!--BODY-->
 <body id="top" class="scrollspy">
 <!--MAIN NAV BAR-->
-	<nav>
-		<div class="nav-wrapper">
-			<a href="!" class="brand-logo center">P-LID</a>
+	<nav class="navbar-fixed-top" >
+
+		<div class="nav-wrapper" >
+			<a class="brand-logo center" href="#">P-LID</a>
 <!--BUTTONS-->
 			<ul class="right hide-on-med-and-down">
 <!--LOG_IN-->
@@ -26,7 +27,9 @@
 					<a href="./sign_in.html" class="waves-effect waves-teal btn-flat">Bejelentkezés</a>
 				</li>
   <!--DROPDOWN-->
-				<a href="" class="dropdown-button btn" data-activates="dropdown1">Szolgáltatások</a>
+				<li>
+					<a href="#" class="dropdown-button btn" data-activates="dropdown1">Szolgáltatások</a>
+				</li>
   <!-- DROPDOWN STRUCTURE -->
 				<ul id='dropdown1' class='dropdown-content'>
 					<li class="divider"></li>
@@ -67,7 +70,6 @@
 		</div>
 	</nav>
 <!--END OF NAVBAR-->
-
 <!--TAP TARGET-->
 	<div class="fixed-action-btn" style="bottom:20px;right:20px">
 		<a id="menu" onclick="$('.tap-target').tapTarget('open')" class="waves-effect waves-light btn btn-floating btn-large cyan">
