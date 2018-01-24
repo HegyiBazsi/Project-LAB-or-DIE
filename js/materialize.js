@@ -8505,32 +8505,32 @@ if (Vel) {
     return {
 
       // The title label to use for the month nav buttons
-      labelMonthNext: 'Next month',
-      labelMonthPrev: 'Previous month',
+      labelMonthNext: 'Következő hónap',
+      labelMonthPrev: 'Előző hónap',
 
       // The title label to use for the dropdown selectors
-      labelMonthSelect: 'Select a month',
-      labelYearSelect: 'Select a year',
+      labelMonthSelect: 'Válasszon hónapot',
+      labelYearSelect: 'Válasszon évet',
 
       // Months and weekdays
-      monthsFull: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-      monthsShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-      weekdaysFull: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-      weekdaysShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+      monthsFull: ['Január', 'Február', 'Március', 'Április', 'Május', 'Június', 'Július', 'Augusztus', 'Szeptember', 'Október', 'November', 'December'],
+      monthsShort: ['Jan', 'Feb', 'Már', 'Ápr', 'Máj', 'Jún', 'Júl', 'Aug', 'Szep', 'Okt', 'Nov', 'Dec'],
+      weekdaysFull: ['Vasárnap', 'Hétfő', 'Kedd', 'Szerda', 'Csütörtök', 'Péntek', 'Szombat'],
+      weekdaysShort: ['Vas', 'Hé', 'Ke', 'Sze', 'Csüt', 'Pé', 'Sz'],
 
       // Materialize modified
-      weekdaysLetter: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+      weekdaysLetter: ['H', 'K', 'Sze', 'CS', 'P', 'Szo', 'V'],
 
       // Today and clear
-      today: 'Today',
-      clear: 'Clear',
+      today: 'Ma',
+      clear: 'Törlés',
       close: 'Ok',
 
       // Picker close behavior (Prevent a change in behaviour for backwards compatibility)
       closeOnSelect: false,
 
       // The format to show on the `input` element
-      format: 'd mmmm, yyyy',
+      format: 'yyyy mmmm, d',
 
       // Classes
       klass: {
