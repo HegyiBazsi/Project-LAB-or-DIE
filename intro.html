@@ -13,6 +13,14 @@
 	<link href="css/indexstyle.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/rotating-card.css" rel="stylesheet" />
 	<link href='css/col.css' rel='stylesheet' />
+	
+<!--MAPS-->	
+	<style>
+      #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
 
 </head>
 
@@ -170,7 +178,15 @@
 	</div>
 
 	<div class="divider"></div>
-
+	
+<!--MAPS-->		
+	<div class="container">		
+		<h4>Irodánk</h4>
+		<div id="map"></div>
+	</div>
+	<br><br>
+	<div class="divider"></div>
+		
 <!--TEAM-->
     <div class="container">
         <h4>Csapatunk</h4>
@@ -378,5 +394,25 @@
 	<script src="js/materialize.js"></script>
 	<script src="js/init.js"></script>
 
+<!--MAPS-->	
+	<script>
+      function initMap() {
+        var uluru = {lat: 47.08722650000001, lng: 17.90845920000004};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtF4WtNRkj005-qM7-Zqh656xkqGQGHAY&callback=initMap">
+    </script>
+	
+	
+	
 </body>
 </html>
