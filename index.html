@@ -23,25 +23,39 @@
 <!--BUTTONS-->
 			<ul class="right hide-on-med-and-down">
 <!--LOG_IN-->
-				<li>
-					<a href="./sign_in.html" class="waves-effect waves-teal btn-flat">Bejelentkezés</a>
-				</li>
-  <!--DROPDOWN-->
-					<a href="#" class="dropdown-button btn" data-activates="dropdown1">Szolgáltatások</a>
-  <!-- DROPDOWN STRUCTURE -->
-				<ul id='dropdown1' class='dropdown-content'>
-					<li class="divider"></li>
-					<li><a href="./internet.html"><i class="material-icons">wifi</i>Internet</a></li>
-					<li class="divider"></li>
-					<li><a href="./tv.html"><i class="material-icons">personal_video</i>Televízió</a></li>
-					<li class="divider"></li>
-					<li><a href="./telefon.html"><i class="material-icons">call</i>Telefon</a></li>
-					<li class="divider"></li>
-					<li><a href="all_in_one.html"><i class="material-icons">looks_3</i>All-in-one</a></li>
-					<li class="divider"></li>
-				</ul>
-				<a href="reg.html" class="btn-floating tooltipped btn-large" data-position="bottom" data-delay="50" data-tooltip="Regisztáció"><i class="large material-icons">person_add</i></a>
+		<!--DROPDOWN LOG IN-->
+					<a href="#" class="dropdown-button btn" data-activates="dropdown-login">Bejelentkezés<strong class="caret"></strong></a>
+		<!--LOGIN DROPDOWN STRUCTURE -->
+					<ul id='dropdown-login' class='dropdown-content'>
+						<li class="divider"></li>
+						<li data-keepOpenOnClick>
+									<input type="text" class="form-control" name="username" placeholder="Felhasználónév" required autofocus style="text-align: center;">
+						</li>
+
+						<li data-keepOpenOnClick>
+						<!--PASSWORD-->
+			            <div class="input-group">
+			                  <input type="password" class="form-control" name="password" placeholder="Jelszó" required autofocus style="text-align: center;">
+			            </div>
+						</li>
+
+						<li data-keepOpenOnClick style="text-align: center;">
+						<!--REMEMBER ME-->
+													<input type="checkbox" name="rememberme" id="rememberme">
+													<label for="rememberme">Jegyezzen meg</label>
+						</li>
+						<li style="text-align: center;">
+						<!--LOGIN-->
+													<button class="btn btn-block waves-effect teal center" type="submit">Belépés</button>
+						</li>
+						<li class="divider"></li>
+					</ul>
+
+<!-- Dropdown LOGIN END-->
+				<a href="reg.html" class="btn-floating tooltipped btn-large" data-position="center" data-delay="50" data-tooltip="Regisztáció"><i class="large material-icons">person_add</i></a>
+
 			</ul>
+
 <!--SIDE BAR-->
 			<nav class="white" role="navigation">
 				<div class="nav-wrapper container">
@@ -70,6 +84,7 @@
 		</div>
 	</nav>
 <!--END OF NAVBAR-->
+
 <!--TAP TARGET-->
 	<div class="fixed-action-btn" style="bottom:20px;right:20px">
 		<a id="menu" onclick="$('.tap-target').tapTarget('open')" class="waves-effect waves-light btn btn-floating btn-large cyan">
@@ -195,6 +210,12 @@
 	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script src="js/materialize.js"></script>
 	<script src="js/init.js"></script>
+	<!--DROPDOWN LOGIN Script-->
+	<script>
+		$(document).delegate("ul.dropdown-content [data-keepOpenOnClick]", "click", function(e) {
+			e.stopPropagation();
+		});
+	</script>
 
 	</body>
 </html>
