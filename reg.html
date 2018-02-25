@@ -5,70 +5,58 @@
      <!--Import materialize.css-->
 	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
      <!--Let browser know website is optimized for mobile-->
      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+ 	<link href="css/indexstyle.css" type="text/css" rel="stylesheet" media="screen,projection"/>
    </head>
 
    <body>
-<!--NAV-->
-  <div class="navbar-fixed">
-    <nav>
-      <div class="nav-wrapper teal">
-        <a href="index.html" class="brand-logo center">P-LID</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
+     <!--NAVBAR-->
+         <nav class="navbar-fixed-top">
+       		<div class="nav-wrapper">
+       			<a href="#!" class="brand-logo center white-text">P-LID</a>
+      <!--BUTTONS-->
+          <ul class="right hide-on-med-and-down" style="margin-top:5px">
+      			<a href="index.html" class="btn-floating white tooltipped btn-large" data-position="bottom" data-delay="50" data-tooltip="Kezdőlap"><i class="large material-icons teal-text">home</i></a>
+      		</ul>
+       <!--SIDE BAR-->
+       			<nav class="teal" role="navigation">
+       				<div class="nav-wrapper container">
+       					<ul id="slide-out" class="side-nav">
+       						<li><div class="divider"></div></li>
+       						<li><a href="index.html" ><i class="material-icons">home</i>Főoldal</a></li>
+       						<li><div class="divider"></div></li>
+       						<li><a href="sign_in.html"><i class="material-icons">input</i>Bejelentkezés</a></li>
+       						<li><div class="divider"></div></li>
+       						<li><a href="reg.html"><i class="material-icons">person_add</i>Regisztáció</a></li>
+       						<li><div class="divider"></div></li>
+       						<li><a href="tv.html"><i class="material-icons">personal_video</i>Televízió</a></li>
+       						<li><div class="divider"></div></li>
+       						<li><a href="telefon.html"><i class="material-icons">call</i>Telefon</a></li>
+       						<li><div class="divider"></div></li>
+       						<li><a href="all_in_one.html"><i class="material-icons">looks_3</i>All-in-one</a></li>
+       						<li><div class="divider"></div></li>
+                   <li><a href="intro.html"><i class="material-icons">people</i>Bemutatkozás</a></li>
+       						<li><div class="divider"></div></li>
+       						<li><a href="help.html"><i class="material-icons">error</i>Hiba bejelentés</a></li>
+       						<li><div class="divider"></div></li>
+       					</ul>
+       					<a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons white-text">menu</i></a>
+       				</div>
+       			</nav>
+     <!--END OF SIDEBAR-->
+       		</div>
+     <!--END OF NAW WRAPPER-->
+       	</nav>
+<!--END OF NAVBAR-->
 
-        </ul>
-      </div>
-    </nav>
-  </div>
 
-<!--FIXED BUTTONS-->
-  <div class="fixed-action-btn">
-      <a class="btn-floating btn-large red black pulse">
-        <i class="large material-icons">menu</i>
-      </a>
-      <ul>
-        <li>
-          <a href="index.html" class="btn-floating tooltipped btn-large red" data-position="left" data-delay="50" data-tooltip="Főoldal">
-            <i class="large material-icons">input</i>
-          </a>
-        </li>
-        <li>
-          <a href="reg.html" class="btn-floating tooltipped btn-large blue" data-position="left" data-delay="50" data-tooltip="Regisztáció">
-            <i class="large material-icons">person_add</i>
-          </a>
-        </li>
-        <li>
-          <a href="internet.html" class="btn-floating tooltipped btn-large lime" data-position="left" data-delay="50" data-tooltip="Internet">
-            <i class="large material-icons">wifi</i>
-          </a>
-        </li>
-        <li>
-          <a href="tv.html" class="btn-floating tooltipped btn-large purple" data-position="left" data-delay="50" data-tooltip="Televízió">
-            <i class="large material-icons">personal_video</i>
-          </a>
-        </li>
-        <li>
-          <a href="telefon.html" class="btn-floating tooltipped btn-large amber" data-position="left" data-delay="50" data-tooltip="Telefon">
-            <i class="large material-icons">call</i>
-          </a>
-        </li>
-        <li>
-          <a href="all_in_one.html" class="btn-floating tooltipped btn-large pink" data-position="left" data-delay="50" data-tooltip="All-in-one">
-            <i class="large material-icons">looks_3</i>
-          </a>
-        </li>
-        <li>
-          <a href="intro.html" class="btn-floating tooltipped btn-large cyan" data-position="left" data-delay="50" data-tooltip="Bemutatkozás">
-            <i class="large material-icons">people</i>
-          </a>
-        </li>
-      </ul>
-    </div>
 
 <!--CONTAINER-->
-     <div class="container">
+     <div class="container" style="margin-top: 100px">
 <!--FORM-->
        <div class="row">
          <h2 class="center">Regisztáció</h2>
@@ -177,6 +165,7 @@
      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
      <script type="text/javascript" src="js/materialize.min.js"></script>
+     <script src="js/init.js"></script>
 
 <!---->
      <script type="text/javascript">
