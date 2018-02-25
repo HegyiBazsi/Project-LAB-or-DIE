@@ -68,7 +68,7 @@ footer.page-footer {
 .plus{
   color: white;
   position: absolute;
-  top: 15;
+  top: 15%;
   display: block;
   bottom: 0;
   left: 0;
@@ -83,3 +83,5 @@ footer.page-footer {
   animation: plus-out 0.3s;
   transition: all 0.3s;
 }
+
+/*CARD WRAPPER*/
