@@ -58,6 +58,7 @@
 <!--CONTAINER-->
      <div class="container" style="margin-top: 100px">
 <!--FORM-->
+<form action=reg.php method="post">
        <div class="row">
          <h2 class="center">Regisztáció</h2>
          <br>
@@ -68,22 +69,22 @@
            <div class="row">
              <div class="input-field col s3">
                <i class="material-icons prefix">account_circle</i>
-               <input  type="text" class="validate">
+               <input  type="text" name="lastname" class="validate">
                <label>Vezeték név *</label>
              </div>
              <div class="input-field col s3">
                <i class="material-icons prefix">account_circle</i>
-               <input type="text" class="validate">
+               <input type="text" name="firstname" class="validate">
                <label>Keresztnév *</label>
              </div>
              <div class="input-field col s3">
                <i class="material-icons prefix">phone</i>
-               <input type="tel" class="validate">
+               <input type="tel" name="phonenumber" class="validate">
                <label>Telefonszám</label>
              </div>
              <div class="input-field col s3">
                <i class="material-icons prefix">email</i>
-               <input type="email" class="validate">
+               <input type="email" name="email" class="validate">
                <label>E-mail cím *</label>
              </div>
            </div>
@@ -94,27 +95,45 @@
            <div class="row">
              <div class="input-field col s3">
                <i class="material-icons prefix">map</i>
-               <input type="number" class="validate">
+               <input type="number" name="cityzip" class="validate">
                <label>Irányítószám</label>
              </div>
              <div class="input-field col s3">
                <i class="material-icons prefix">location_city</i>
-               <input type="text" class="validate">
+               <input type="text" name="cityname" class="validate">
                <label>Város</label>
              </div>
              <div class="input-field col s3">
                <i class="material-icons prefix">place</i>
-               <input type="text" class="validate">
-               <label>Utca, házszám</label>
+               <input type="text" name="street" class="validate">
+               <label>Utca</label>
+             </div>
+
+              <div class="input-field col s3">
+                <i class="material-icons prefix">place</i>
+                <input type="text" name="address" class="validate">
+                <label>Házszám</label>
+              </div>
+           </div>
+
+<!--PASSWORD-->
+           <div class="row">
+             <div class="input-field col s3">
+              <i class="material-icons prefix">lock</i>
+              <input type="text" name="password" class="validate">
+              <label>Jelszó *</label>
              </div>
 <!--DATE-->
-			 <div class="input-field col s3">
-				<i class="material-icons prefix">cake</i>
-				<input type="text" class="datepicker">
-				<label>Születési dátum *</label>
-			 </div>
+             <div class="input-field col s3">
+      				<i class="material-icons prefix">cake</i>
+      				<input type="text" name="birthdate" class="datepicker">
+      				<label>Születési dátum *</label>
+      			 </div>
            </div>
        </div>
+
+
+
 
 <!--MODAL-->
 <!-- Modal Trigger -->
@@ -133,7 +152,7 @@
         </div>
       </div>
     </div><!--END OF CONTAINER-->
-
+</form>
 <br><br><br>
 
 <!--FOOTER-->
@@ -236,8 +255,27 @@
     // The format to show on the `input` element
     format: 'yyyy, mmmm, dd',
     closeOnSelect: false // Close upon selecting a date,
-  });
-       </script>
+    });
+    </script>
+<!--PHP reg-->
+    <?php
+     			if(isset($_POST['firstname'])){
+     				include "php/connect.php";
+     				$FirstName = $_POST['firstname'];
+            $LastName = $_POST['lastname'];
+            $BirthDate = $_POST['birthdate'];
+            $CityZip =  $_POST['cityzip'];
+            $City = $_POST['cityname'];
+     				$Street = $_POST['street'];
+            $Address = $_POST['address'];
+     				$Telnum = $_POST['phonenumber'];
+     				$Email = $_POST['email'];
+     				$passWord = $_POST['password'];
 
+     				$sql = "INSERT INTO `Customers`(`FirstName`, `LastName`, `BirthDate`, `CityZip`, `City`, `Street`, `Address`, `Telnum`, `Email`, `Password`) VALUES (FirstName, LastName, BirthDate, CityZip, City, Street, Address, Telnum, Email, Password)";
+     				$resultset = mysqli_query($mysqllink, $sql ) or die("data transfer error: ".mysqli_error($mysqllink));
+     				mysqli_close($mysqllink);
+     			}
+    ?>
    </body>
  </html>
