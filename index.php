@@ -213,6 +213,25 @@
 			e.stopPropagation();
 		});
 	</script>
+	<!--PHP reg-->
+	    <?php
+	     			if(isset($_POST['firstname'])){
+	     				include "php/connect.php";
+	     				$FirstName = $_POST['firstname'];
+	            $LastName = $_POST['lastname'];
+	            $BirthDate = $_POST['birthdate'];
+	            $CityZip =  $_POST['cityzip'];
+	            $City = $_POST['cityname'];
+	     				$Street = $_POST['street'];
+	            $Address = $_POST['address'];
+	     				$Telnum = $_POST['phonenumber'];
+	     				$Email = $_POST['email'];
+	     				$passWord = $_POST['password'];
 
+	     				$sql = "INSERT INTO `Customers`(`FirstName`, `LastName`, `BirthDate`, `CityZip`, `City`, `Street`, `Address`, `Telnum`, `Email`, `Password`) VALUES (FirstName, LastName, BirthDate, CityZip, City, Street, Address, Telnum, Email, Password)";
+	     				$resultset = mysqli_query($mysqllink, $sql ) or die("data transfer error: ".mysqli_error($mysqllink));
+	     				mysqli_close($mysqllink);
+	     			}
+	    ?>
 	</body>
 </html>

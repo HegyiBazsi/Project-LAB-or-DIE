@@ -20,7 +20,7 @@
        			<a href="#!" class="brand-logo center white-text">P-LID</a>
       <!--BUTTONS-->
           <ul class="right hide-on-med-and-down" style="margin-top:5px">
-      			<a href="index.html" class="btn-floating white tooltipped btn-large" data-position="bottom" data-delay="50" data-tooltip="Kezdőlap"><i class="large material-icons teal-text">home</i></a>
+      			<a href="index.php" class="btn-floating white tooltipped btn-large" data-position="bottom" data-delay="50" data-tooltip="Kezdőlap"><i class="large material-icons teal-text">home</i></a>
       		</ul>
        <!--SIDE BAR-->
        			<nav class="teal" role="navigation">
@@ -54,11 +54,11 @@
 <!--END OF NAVBAR-->
 
 
-
+<form action=reg.php method=post>
 <!--CONTAINER-->
      <div class="container" style="margin-top: 100px">
 <!--FORM-->
-<form action=reg.php method="post">
+
        <div class="row">
          <h2 class="center">Regisztáció</h2>
          <br>
@@ -120,7 +120,7 @@
            <div class="row">
              <div class="input-field col s3">
               <i class="material-icons prefix">lock</i>
-              <input type="text" name="password" class="validate">
+              <input type="password" name="password" class="validate">
               <label>Jelszó *</label>
              </div>
 <!--DATE-->
@@ -133,24 +133,8 @@
        </div>
 
 
+<input type="submit" value="submit"/>
 
-
-<!--MODAL-->
-<!-- Modal Trigger -->
-      <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Regisztáció</a>
-
-<!-- Modal Structure -->
-      <div id="modal1" class="modal">
-        <div class="modal-content">
-          <h4>P-LID</h4>
-          <p>
-            Köszönjük hogy regisztrált a P-LID oldalára! Kattintson a "Továbbra" a folytatáshoz.
-           </p>
-        </div>
-        <div class="modal-footer">
-          <a href="index.html" class="modal-action modal-close waves-effect waves-green btn-flat">Tovább</a>
-        </div>
-      </div>
     </div><!--END OF CONTAINER-->
 </form>
 <br><br><br>
@@ -259,8 +243,9 @@
     </script>
 <!--PHP reg-->
     <?php
-     			if(isset($_POST['firstname'])){
-     				include "php/connect.php";
+     			if(isset($_POST['lastname']))
+          {
+     				include "connect.php";
      				$FirstName = $_POST['firstname'];
             $LastName = $_POST['lastname'];
             $BirthDate = $_POST['birthdate'];
@@ -270,9 +255,10 @@
             $Address = $_POST['address'];
      				$Telnum = $_POST['phonenumber'];
      				$Email = $_POST['email'];
-     				$passWord = $_POST['password'];
+     				$PassWord = $_POST['password'];
 
-     				$sql = "INSERT INTO `Customers`(`FirstName`, `LastName`, `BirthDate`, `CityZip`, `City`, `Street`, `Address`, `Telnum`, `Email`, `Password`) VALUES (FirstName, LastName, BirthDate, CityZip, City, Street, Address, Telnum, Email, Password)";
+     				$sql = "INSERT INTO `customers`(`FirstName`, `LastName`, `BirthDate`, `CityZip`, `City`, `Street`, `Address`, `Telnum`, `Email`, `Password`)
+            VALUES ('$FirstName', '$LastName', '$BirthDate', '$CityZip', '$City', '$Street', '$Address', '$Telnum', '$Email','$PassWord');";
      				$resultset = mysqli_query($mysqllink, $sql ) or die("data transfer error: ".mysqli_error($mysqllink));
      				mysqli_close($mysqllink);
      			}

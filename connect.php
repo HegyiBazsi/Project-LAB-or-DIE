@@ -1,9 +1,9 @@
 <?php
 
     // az adatbazis kapcsolat parameterei
-    $host="localhost:3306";
-    $user="plidrendszer";
-    $pass="projektlab";
+    $host="localhost";
+    $user="root";
+    $pass="";
     $db="plidrendszer";
 
     // adatbazis kapcsolat letrehozasa
