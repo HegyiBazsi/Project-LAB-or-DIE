@@ -20,6 +20,7 @@ p {
 }
 
 
+
 @media only screen and (max-width : 100%) {
   .parallax-container .section {
     position: absolute;
@@ -48,8 +49,10 @@ footer.page-footer {
   margin: 0;
 }
 
-
-
+/*Submit text align center*/
+.form-submit-button {
+padding : 0 !important;
+}
 
 /*FLOATING BUTTON */
 #floating-button{
