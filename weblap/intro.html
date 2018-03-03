@@ -11,7 +11,7 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 	<link href="css/indexstyle.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/rotating-card.css" rel="stylesheet" />
+   <!--<link href="css/rotating-card.css" rel="stylesheet" />-->
 	<link href='css/col.css' rel='stylesheet' />
 
 <!--MAPS-->
@@ -23,6 +23,21 @@
 	   h1{
 		font-size: 10vmin;
 	   }
+	* {
+		box-sizing: border-box;
+	}
+	.column{
+		width: 50%;
+		float: left;
+		padding: 10px;
+	}
+	
+	@media (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+	}
+
     </style>
 
 </head>
@@ -193,39 +208,37 @@
 <!--TEAM-->
     <div class="container">
         <h4>Csapatunk</h4>
-					<div class="row">
-          	<div class="col s12 m3">
+			<div class="row">
+			<div class="column">
+          	<!--<div class="col s12 m4">-->
             	<div class="card-container">
 								<div class="card">
-									<div class="front">
-										<div class="cover">
-											<img src="img/intro/backg_balázs.jpg"/>
-										</div>
-										<div class="user">
-											<img class="img-circle" src="img/intro/flash.png"/>
-										</div>
-										<div class="content">
+									<div class="card-image waves-effect waves-block waves-light">
+									  <img class="activator" src="img/index/cat2.jpg">
+									</div>
+									<div class="card-content">
+									  <span class="card-title activator grey-text text-darken-4">Hegyi Balázs
+											<i class="material-icons right">more_vert</i>
+									  </span>
+									  <em><a class="teal-text text-darken-1" href="#">Nyilvántartás és hálózat</a></em>
+									  <br>
+									</div>
+									<div class="card-reveal">
+									  <span class="card-title grey-text text-darken-4">
+											<i class="material-icons right">close</i>
+									  </span>
+									<p class="text-center" align="justify">
+										<i class="material-icons">assignment_ind</i> Mérnökinformatikus
+										<br>
+										<i class="material-icons">mail_outline</i> E-mail: godofthenet@plid.com
+										<br>
+										<i class="material-icons">call</i> Telefon: 06-10-589-4472
+										<br>
+								    </p>
+									<div class="content">
 											<div class="main">
-												<span class="card-title activator grey-text text-darken-4">Hegyi Balázs <br/>
-													<small><em><a class="teal-text text-darken-1" href="#">Nyilvántartás és hálózat</a></em></small>
-												</span>
-												<p class="text-center" align="justify">
-													<i class="material-icons">assignment_ind</i> Mérnökinformatikus
-													<br>
-													<i class="material-icons">mail_outline</i> E-mail: godofthenet@plid.com
-													<br>
-													<i class="material-icons">call</i> Telefon: 06-10-589-4472
-													<br>
-												</p>
-											</div>
-										</div>
-									</div> <!-- end front panel -->
-									<div class="back">
-										<div class="header">
-											<h5 class="motto">"To be or not to be, this is my awesome motto!"</h5>
-										</div>
-										<div class="content">
-											<div class="main">
+											<div class="divider"></div>
+											<br>
 												<h4 class="text-center">Feladatkör</h4>
 												<p class="text-center" align="justify">
 													Személy szerint a terepen dolgozok, hálózatot tervezek és telepítek,
@@ -233,43 +246,43 @@
 												</p>
 											</div>
 										</div><!-- end content -->
-									</div> <!-- end back panel -->
-								</div> <!-- end card -->
-							</div> <!-- end card-container -->
-    				</div><!--col s12 m3 -->
 
-			<div class="col s12 m3">
+									</div>
+								 </div>
+							</div> <!-- end card-container -->
+    				<!--</div>--><!--col s12 m3 -->
+					</div><!--column-->
+
+			<div class="column">
+			<!--<div class="col s12 m4">-->
                 <div class="card-container">
 					<div class="card">
-						<div class="front">
-							<div class="cover">
-								<img src="img/intro/backg_réka.jpg"/>
-							</div>
-							<div class="user">
-								<img class="img-circle" src="img/intro/catwoman.png"/>
-							</div>
+						<div class="card-image waves-effect waves-block waves-light"><!--card title-->
+						  <img class="activator" src="img/index/cat2.jpg">
+						</div>
+						<div class="card-content">
+						  <span class="card-title activator grey-text text-darken-4">Pap Réka
+								<i class="material-icons right">more_vert</i>
+						  </span>
+						  <em><a class="teal-text text-darken-1" href="#">Marketing és pénzügy</a></em>
+						  <br>
+						</div>
+						<div class="card-reveal">
+						  <span class="card-title grey-text text-darken-4"><!--card title-->
+							<i class="material-icons right">close</i>
+						  </span>
+						  <p class="text-center">
+							 <i class="material-icons">assignment_ind</i> Gazdaságinformatikus
+							 <br>
+							 <i class="material-icons">mail_outline</i> E-mail: catwoman@plid.com
+							 <br>
+							 <i class="material-icons">call</i> Telefon: 06-10-876-1967
+							 <br>
+						  </p>
 							<div class="content">
 								<div class="main">
-									<span class="card-title activator grey-text text-darken-4">Pap Réka <br/>
-										<small><em><a class="teal-text text-darken-1" href="#">Marketing és pénzügy</a></em></small>
-									</span>
-									<p class="text-center">
-										<i class="material-icons">assignment_ind</i> Gazdaságinformatikus
-										<br>
-										<i class="material-icons">mail_outline</i> E-mail: catwoman@plid.com
-										<br>
-										<i class="material-icons">call</i> Telefon: 06-10-876-1967
-										<br>
-									</p>
-								</div>
-							</div>
-						</div> <!-- end front panel -->
-						<div class="back">
-							<div class="header">
-								<h5 class="motto">"To be or not to be, this is my awesome motto!"</h5>
-							</div>
-							<div class="content">
-								<div class="main">
+								<div class="divider"></div>
+							    <br>
 									<h4 class="text-center">Feladatkör</h4>
 									<p class="text-center" align="justify">
 									A marketing és számviteli feladatokat látom el. Kiállítom, elkönyvelem a számlákat, bizonylatokat.
@@ -277,97 +290,98 @@
 									</p>
 								</div>
 							</div><!--end content -->
-						</div> <!-- end back panel -->
-					</div> <!-- end card -->
+						</div>
+					 </div>
 				</div> <!-- end card-container -->
-            </div><!--COL S12 m3-->
-
-            <div class="col s12 m3">
+            <!--</div>--><!--COL S12 m3-->
+			</div><!--column-->
+			
+						<div class="column">
+			<!--<div class="col s12 m4">-->
                 <div class="card-container">
 					<div class="card">
-						<div class="front">
-							<div class="cover">
-								<img src="img/intro/backg_g.jpg"/>
-							</div>
-							<div class="user">
-								<img class="img-circle" src="img/intro/robin.png"/>
-							</div>
+						<div class="card-image waves-effect waves-block waves-light"><!--card title-->
+						  <img class="activator" src="img/index/cat2.jpg">
+						</div>
+						<div class="card-content">
+						  <span class="card-title activator grey-text text-darken-4">Kápli Gergely
+								<i class="material-icons right">more_vert</i>
+						  </span>
+						  <em><a class="teal-text text-darken-1" href="#">Rendszergazda</a></em>
+						  <br>
+						</div>
+						<div class="card-reveal">
+						  <span class="card-title grey-text text-darken-4"><!--card title-->
+							<i class="material-icons right">close</i>
+						  </span>
+						  <p class="text-center">
+							 <i class="material-icons">assignment_ind</i> Gazdaságinformatikus
+							 <br>
+							 <i class="material-icons">mail_outline</i> E-mail: gery77@plid.com
+							 <br>
+							 <i class="material-icons">call</i> Telefon: 06-10-325-7868
+							 <br>
+						  </p>
 							<div class="content">
 								<div class="main">
-									<span class="card-title activator grey-text text-darken-4">Kápli Gergely<br/>
-										<small><em><a class="teal-text text-darken-1" href="#">Rendszergazda</a></em></small>
-									</span>
-									<p class="text-center">
-										<i class="material-icons">assignment_ind</i> Gazdaságinformatikus
-										<br>
-										<i class="material-icons">mail_outline</i> E-mail: gery77@plid.com
-										<br>
-										<i class="material-icons">call</i> Telefon: 06-10-325-7868
-										<br>
-									</p>
-								</div>
-							</div>
-						</div> <!-- end front panel -->
-						<div class="back">
-							<div class="header">
-								<h5 class="motto">"To be or not to be, this is my awesome motto!"</h5>
-							</div>
-							<div class="content">
-								<div class="main">
+								<div class="divider"></div>
+							    <br>
 									<h4 class="text-center">Feladatkör</h4>
 									<p class="text-center" align="justify">
-										A cégen belül a rendszergazda szerepét töltöm be. Általában programokat telepítek, és üzemeltetem a szervereket valamint más számítógépes rendszereket.
+									A cégen belül a rendszergazda szerepét töltöm be.
+									Általában programokat telepítek, és üzemeltetem a szervereket valamint más számítógépes rendszereket.
 									</p>
 								</div>
-							</div><!-- content -->
-						</div> <!-- end back panel -->
-					</div> <!-- end card -->
+							</div><!--end content -->
+						</div>
+					 </div>
 				</div> <!-- end card-container -->
-            </div><!-- COL S12 m3 -->
-
-			<div class="col s12 m3">
-                 <div class="card-container">
+            <!--</div>--><!--COL S12 m3-->
+			</div><!--column-->
+			
+			<div class="column">
+			<!--<div class="col s12 m4">-->
+                <div class="card-container">
 					<div class="card">
-						<div class="front">
-							<div class="cover">
-								<img src="img/intro/backg_ricsi.jpg"/>
-							</div>
-							<div class="user">
-								<img class="img-circle" src="img/intro/capt.png"/>
-							</div>
+						<div class="card-image waves-effect waves-block waves-light"><!--card title-->
+						  <img class="activator" src="img/index/cat2.jpg">
+						</div>
+						<div class="card-content">
+						  <span class="card-title activator grey-text text-darken-4">Rádli Richárd
+								<i class="material-icons right">more_vert</i>
+						  </span>
+						  <em><a class="teal-text text-darken-1" href="#">Web Design</a></em>
+						  <br>
+						</div>
+						<div class="card-reveal">
+						  <span class="card-title grey-text text-darken-4"><!--card title-->
+							<i class="material-icons right">close</i>
+						  </span>
+						  <p class="text-center">
+							 <i class="material-icons">assignment_ind</i> Mérnökinformatikus
+							 <br>
+							 <i class="material-icons">mail_outline</i> E-mail: csibe78@plid.com
+							 <br>
+							 <i class="material-icons">call</i> Telefon: 06-10-321-4467
+							 <br>
+						  </p>
 							<div class="content">
 								<div class="main">
-									<span class="card-title activator grey-text text-darken-4">Rádli Richárd <br/>
-										<small><em><a class="teal-text text-darken-1" href="#">Web Design</a></em></small>
-									</span>
-									<p class="text-center">
-										<i class="material-icons">assignment_ind</i> Mérnökinformatikus
-										<br>
-										<i class="material-icons">mail_outline</i> E-mail: csibe78@plid.com
-										<br>
-										<i class="material-icons">call</i> Telefon: 06-10-321-4467
-										<br>
-									</p>
-								</div>
-							</div>
-						</div> <!-- end front panel -->
-						<div class="back">
-							<div class="header">
-								<h5 class="motto">"A forma változó, a klasszis örök."</h5>
-							</div>
-							<div class="content">
-								<div class="main">
+								<div class="divider"></div>
+								<br>
 									<h4 class="text-center">Feladatkör</h4>
 									<p class="text-center" align="justify">
 										A weboldalért vagyok felelős, mind back-end, mind front-end részről.
 										Rendszerint jómagam fejlesztem, és javítom az oldalt, a megrendelői preferenciáknak megfelelően.
 									</p>
 								</div>
-							</div><!--content-->
-						</div> <!-- end back panel -->
-					</div> <!-- end card -->
+							</div><!--end content -->
+						</div>
+					 </div>
 				</div> <!-- end card-container -->
-            </div><!-- COL S12 m3-->
+            <!--</div>--><!--COL S12 m3-->
+			</div><!--column-->
+			
 		</div><!--END ROW -->
     </div><!--CONTAINER-->
 
