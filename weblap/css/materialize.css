@@ -4219,7 +4219,7 @@ nav.nav-extended {
 }
 
 nav.nav-extended .nav-wrapper {
-  min-height: 56px;
+  min-height: 64px;
   height: auto;
 }
 
@@ -4408,7 +4408,7 @@ nav .input-field label.active i {
 /*EZ A JÓ CLASSSSSS A ROLLING BARHOZ*/
 .navbar-fixed-top {
   position: fixed;
-  height: 56px;
+  height: 64px;
   top: 0;
   z-index: 1020;
 }
