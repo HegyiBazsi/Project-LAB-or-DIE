@@ -1,85 +1,166 @@
 
 <!DOCTYPE html>
-  <html>
+  <html lang="hu">
     <head>
-      <!--Import Google Icon Font-->
-      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <!--Import materialize.css-->
-       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
-
-      <!--Let browser know website is optimized for mobile-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
+		<!--Import Google Icon Font-->
+			<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<!--Import materialize.css-->			
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+		<!--Let browser know website is optimized for mobile-->
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		</head>
     <body>
 		
 	<nav class="navbar-fixed-top">
-       		<div class="nav-wrapper">
-       			<a href="#!" class="brand-logo center white-text">P-LID</a>
-       <!--SIDE BAR-->
-       			<nav class="red" role="navigation">
-       				<div class="nav-wrapper container">
-       					<ul id="slide-out" class="side-nav">
-       						
-       					</ul>
-       					<a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons white-text">menu</i></a>
-       				</div>
-       			</nav>
-     <!--END OF SIDEBAR-->
-       		</div>
-     <!--END OF NAW WRAPPER-->
-       	</nav>
-
+       	<div class="nav-wrapper">
+       		<a href="#!" class="brand-logo center white-text">P-LID</a>       
+			<nav class="red" role="navigation">
+				<div class="nav-wrapper container">
+				<!--SIDE BAR-->					
+					<ul id="slide-out" class="side-nav">
+       					<li>
+							<div class="user-view">
+								<div class="background">
+									<img src="img/admin/back.jpg">
+								</div>
+								<a href="#!user"><img class="circle" src="img/admin/admin.jpg"></a>
+								<a href="#!name"><span class="white-text name">Admin</span></a>
+								<a href="#!email"><span class="white-text email">admin@plid.com</span></a>
+							</div>
+						</li>
+						<!--OPERATIONS WITH USERS-->
+						<li>
+							<a class="subheader red-text ">Műveletek felhasználókkal</a>
+						</li>
+						<li>
+							<div class="divider"></div>
+						</li>
+						<li>
+							<a href="#!" class = "waves-effect"><i class="material-icons">contacts</i>Listázás</a>
+						</li>
+						<li>
+							<div class="divider"></div>
+						</li>
+						<li>
+							<a href="#!" class = "waves-effect"><i class="material-icons">person_add</i>Hozzáadás</a>
+						</li>
+						<li>
+							<div class="divider"></div>
+						</li>
+						<li>
+							<a href="#!" class = "waves-effect"><i class="material-icons">edit</i>Módosítás</a>
+						</li>
+						<li>
+							<div class="divider"></div>
+						</li>						
+						<li>
+							<a href="#!" class = "waves-effect"><i class="material-icons">delete</i>Törlése</a>
+						</li>	
+						<li>
+							<div class="divider"></div>
+						</li>
+											
+						<!--OPERATIONS WITH SERVICES-->
+						<li>
+							<a class="subheader red-text">Műveletek csomagokkal</a>
+						</li>
+						<li>
+							<div class="divider"></div>
+						</li>
+						<li>
+							<a href="#!" class = "waves-effect"><i class="material-icons">list</i>Listázás</a>
+						</li>
+						<li>
+							<div class="divider"></div>
+						</li>
+						<li>
+							<a href="#!" class = "waves-effect"><i class="material-icons">playlist_add</i>Hozzáadás</a>
+						</li>
+						<li>
+							<div class="divider"></div>
+						</li>
+						<li>
+							<a href="#!" class = "waves-effect"><i class="material-icons">edit</i>Módosítás</a>
+						</li>
+						<li>
+							<div class="divider"></div>
+						</li>						
+						<li>
+							<a href="#!" class = "waves-effect"><i class="material-icons">delete_sweep</i>Törlése</a>
+						</li>	
+						<li>
+							<div class="divider"></div>
+						</li>
+						
+						<!--OTHER-->
+						<li>
+							<a class="subheader red-text ">Egyéb</a>
+						</li>
+						<li>
+							<div class="divider"></div>
+						</li>
+						<li>
+							<a href="#!" class = "waves-effect"><i class="material-icons">exit_to_app</i>Kilépés</a>
+						</li>
+						<li>
+							<div class="divider"></div>
+						</li>
+						
+       				</ul>
+       				<a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons white-text">menu</i></a>
+       			</div>     <!--END OF SIDEBAR-->
+       		</nav>
+       	</div>     <!--END OF NAW WRAPPER-->
+    </nav>
         
-<div class="container">
+	<div class="container">
         <!-- TABS -->
         <h1>ADMIN</h1>
         <div class="row">
-          <div class="col s12">
-            <ul class="tabs">
-				<li class="tab col m4">
-					<a href="#test1">Internet</a>
-				</li>
-				<li class="tab col m4">
-					<a href="#test2">Televízió</a>
-				</li>
-				<li class="tab col  m4">
-					<a href="#test3">Telefon</a>
-				</li>				
-            </ul>
-          </div>
-		  
-		  
+			<div class="col s12">
+				<ul class="tabs">
+					<li class="tab col m4">
+						<a href="#test1">Internet</a>
+					</li>
+					<li class="tab col m4">
+						<a href="#test2">Televízió</a>
+					</li>
+					<li class="tab col  m4">
+						<a href="#test3">Telefon</a>
+					</li>				
+				</ul>
+			</div>		  
 		  
 <!--TEST 1 - INTERNET-->		  
-          <div id="test1" class="col s12">
+        <div id="test1" class="col s12">
 			<table class="centered">
 				<thead>
-				  <tr>
-					  <th>Név</th>
-					  <th>Item Name</th>
-					  <th>Item Price</th>
-				  </tr>
+					<tr>
+						<th>Név</th>
+						<th>Item Name</th>
+						<th>Item Price</th>
+					</tr>
 				</thead>
 
 				<tbody>
-				  <tr>
-					<td>Alvin</td>
-					<td>Eclair</td>
-					<td>$0.87</td>
-				  </tr>
-				  <tr>
-					<td>Alan</td>
-					<td>Jellybean</td>
-					<td>$3.76</td>
-				  </tr>
-				  <tr>
-					<td>Jonathan</td>
-					<td>Lollipop</td>
-					<td>$7.00</td>
-				  </tr>
+					<tr>
+						<td>Alvin</td>
+						<td>Eclair</td>
+						<td>$0.87</td>
+					</tr>
+					<tr>
+						<td>Alan</td>
+						<td>Jellybean</td>
+						<td>$3.76</td>
+					</tr>
+					<tr>
+						<td>Jonathan</td>
+						<td>Lollipop</td>
+						<td>$7.00</td>
+					</tr>
 				</tbody>
 			</table>
-		  </div>
+		</div>
 		  
 <!--TEST2 - TV-->		  
           <div id="test2" class="col s12">
@@ -242,7 +323,15 @@
           $('.modal').modal();
 
           // Init Sidenav
-          $('.button-collapse').sideNav();
+          $('.button-collapse').sideNav
+						(
+							{
+								menuWidth: 300, // Default is 300
+								edge: 'left', // Choose the horizontal origin
+								closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+								draggable: true, // Choose whether you can drag to open on touch screens,
+							}
+						);
         });
       </script>
     </body>
