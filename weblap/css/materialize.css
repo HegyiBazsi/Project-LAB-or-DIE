@@ -1,4 +1,4 @@
-/*!
+./*!
  * Materialize v0.100.2 (http://materializecss.com)
  * Copyright 2014-2017 Materialize
  * MIT License (https://raw.githubusercontent.com/Dogfalo/materialize/master/LICENSE)
@@ -110,7 +110,6 @@
 .red.lighten-3 {
   background-color: #EF9A9A !important;
 }
-
 .red-text.text-lighten-3 {
   color: #EF9A9A !important;
 }
@@ -4208,10 +4207,10 @@ nav ul a span.badge {
 
 nav {
   color: #fff;
-  background-color: #ee6e73;
+  background-color: #FFFFFF;
   width: 100%;
-  height: 56px;
-  line-height: 56px;
+  height: 64px;
+  line-height: 64px;
 }
 
 nav.nav-extended {
@@ -4220,7 +4219,7 @@ nav.nav-extended {
 
 nav.nav-extended .nav-wrapper {
   min-height: 64px;
-  height: auto;
+  height: 64px;
 }
 
 nav.nav-extended .nav-content {
@@ -4256,13 +4255,13 @@ nav .button-collapse {
   float: left;
   position: relative;
   z-index: 1;
-  height: 56px;
+  height: 64px;
   margin: 0 18px;
 }
 
 nav .button-collapse i {
-  height: 56px;
-  line-height: 56px;
+  height: 64px;
+  line-height: 64px;
 }
 
 nav .brand-logo {
@@ -4400,7 +4399,7 @@ nav .input-field label.active i {
 
 .navbar-fixed {
   position: relative;
-  height: 56px;
+  height: 64px;
   z-index: 997;
   top: 0;
 }
