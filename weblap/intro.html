@@ -15,32 +15,7 @@
 	<link href='css/col.css' rel='stylesheet' />
 	
 	<link rel="icon" href="./img/intro/team.png">
-
-<!--MAPS-->
-	<style>
-      #map {
-        height: 400px;
-        width: 100%;
-       }
-	   h1{
-		font-size: 10vmin;
-	   }
-	* {
-		box-sizing: border-box;
-	}
-	.column{
-		width: 50%;
-		float: left;
-		padding: 10px;
-	}
-	
-	@media (max-width: 600px) {
-    .column {
-        width: 100%;
-    }
-	}
-
-    </style>
+	<link href="css/intro.css" type="text/css" rel="stylesheet" media="all"/>
 
 </head>
 
@@ -438,19 +413,7 @@
 	<script src="js/init.js"></script>
 
 <!--MAPS-->
-	<script>
-      function initMap() {
-        var uluru = {lat: 47.08944, lng: 17.90796};
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: uluru
-        });
-        var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
-        });
-      }
-    </script>
+	<script src="js/intro.js"></script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtF4WtNRkj005-qM7-Zqh656xkqGQGHAY&callback=initMap">
     </script>
