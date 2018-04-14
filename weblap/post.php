@@ -76,7 +76,7 @@
         {
           header('Location: failedlogin.html');
         }
-
         mysqli_close($mysqllink);
       }
+
 ?>
