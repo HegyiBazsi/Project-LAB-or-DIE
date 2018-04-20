@@ -5,6 +5,13 @@
         $name=$_SESSION["name"];
         $email=$_SESSION["email"];
         $id=$_SESSION["id"];
+        $internetname=$_SESSION["internetname"];
+        $telname=$_SESSION["telname"];
+        $tvname=$_SESSION["tvname"];
+        $internetprice=$_SESSION["internetprice"];
+        $telprice=$_SESSION["telprice"];
+        $tvprice=$_SESSION["tvprice"];
+        $summonthly=$_SESSION["summonthly"];
 
     ?>
     <head>
@@ -44,7 +51,7 @@
 						</li>
 						<!--USER SIDEBAR-->
 						<li>
-							<a class="subheader red-text ">Felhasználói adatok</a>
+							<a class="subheader red-text ">Felhasználói adatok módosítása</a>
 						</li>
 						<li>
 							<a href="#!" class = "waves-effect"><i class="material-icons">person_add</i>Hozzáadás</a>
@@ -53,24 +60,12 @@
 							<div class="divider"></div>
 						</li>
 						<li>
-							<a href="#!" class = "waves-effect"><i class="material-icons">edit</i>Hűségidő Módosítása</a>
-						</li>
-						<li>
-							<div class="divider"></div>
-						</li>
-						<li>
-							<a href="#!" class = "waves-effect"><i class="material-icons">delete</i>Fiók Törlése</a>
+							<a href="deleteaccount.php" class = "waves-effect"><i class="material-icons">delete</i>Fiók Törlése</a>
 						</li>
 
 						<!--OPERATIONS WITH SERVICES-->
 						<li>
-							<a class="subheader red-text">Műveletek csomagokkal</a>
-						</li>
-						<li>
-							<div class="divider"></div>
-						</li>
-						<li>
-							<a href="#!" class = "waves-effect"><i class="material-icons">playlist_add</i>Hosszabbítás</a>
+							<a class="subheader red-text">Egyéb funkciók</a>
 						</li>
 						<li>
 							<div class="divider"></div>
@@ -78,8 +73,6 @@
 						<li>
 							<a href="#!" class = "waves-effect"><i class="material-icons">edit</i>Módosítás</a>
 						</li>
-
-						<!--OTHER-->
 						<li>
 							<div class="divider"></div>
 						</li>
@@ -135,69 +128,10 @@
 				<tbody>
 					<tr>
             <?php
-              include "php/connect.php";
-              $sql="SELECT * FROM `Subscription_Customers` WHERE `CustomerID` = $id";
-              $resultset = mysqli_query($mysqllink, $sql ) or die("no result: ".mysqli_error($mysqllink));
-              $subrow=mysqli_fetch_row($resultset);
-              if($subrow != NULL)
-              {
-                $internetid=$subrow[4];
-                $tvid=$subrow[6];
-                $telid=$subrow[5];
-              }
-
-              mysqli_close($mysqllink);
-              include "php/connect.php";
-
-              $sql="SELECT `Name` FROM `InternetPacks` WHERE `NetID` = $internetid";
-              $resultset = mysqli_query($mysqllink, $sql ) or die("no result: ".mysqli_error($mysqllink));
-              $internetrow=mysqli_fetch_row($resultset);
-              if($internetrow != NULL)
-              {
-
-                $internetname =$internetnam.$internetrow[0];
-              }
-              else
-              {
-                $internetname="nincs";
-              }
-
-              mysqli_close($mysqllink);
-              include "php/connect.php";
-
-              $sql="SELECT `TelPackName` FROM `TelPacks` WHERE `TelPackID` = $telid";
-              $resultset = mysqli_query($mysqllink, $sql ) or die("no result: ".mysqli_error($mysqllink));
-              $telrow=mysqli_fetch_row($resultset);
-              if($telrow != NULL)
-              {
-                $telname=$telrow[0];
-              }
-              else
-              {
-                $telname="nincs";
-              }
-
-              mysqli_close($mysqllink);
-              include "php/connect.php";
-
-              $sql="SELECT `Name` FROM `TVPacks` WHERE `TVID` = $tvid";
-              $resultset = mysqli_query($mysqllink, $sql ) or die("no result: ".mysqli_error($mysqllink));
-              $tvrow=mysqli_fetch_row($resultset);
-              if($tvrow != NULL)
-              {
-                $tvname=$tvrow[0];
-              }
-              else
-              {
-                $tvname="nincs";
-              }
-
-              mysqli_close($mysqllink);
               echo '<td>'.$internetname.'</td>';
               echo '<td>'.$telname.'</td>';
               echo '<td>'.$tvname.'</td>';
             ?>
-
 					</tr>
           <tr>
             <form class="" action="post.php" method="post">
@@ -223,136 +157,12 @@
 				<tbody>
 				  <tr>
            <?php
-              include "php/connect.php";
-              $sql="SELECT * FROM `Subscription_Customers` WHERE `CustomerID` = $id";
-              $resultset = mysqli_query($mysqllink, $sql ) or die("no result: ".mysqli_error($mysqllink));
-              $subrow=mysqli_fetch_row($resultset);
-              if($subrow != NULL)
-              {
-                $internetid=$subrow[4];
-                $tvid=$subrow[6];
-                $telid=$subrow[5];
-                $subtime=$subrow[3];
 
-              }
-              if($subtime=1)
-              {
-                $sql="SELECT `oneyear_price` FROM `InternetPacks` WHERE `NetID` = $internetid";
-                $resultset = mysqli_query($mysqllink, $sql ) or die("no result: ".mysqli_error($mysqllink));
-                $internetrow=mysqli_fetch_row($resultset);
-                if($internetrow != NULL)
-                {
-                  $internetprice=$internetrow[0];
-                }
-                else
-                {
-                  $internetprice=0;
-                }
-
-                $sql="SELECT `MonthlyPrice` FROM `TelPacks` WHERE `TelPackID` = $telid";
-                $resultset = mysqli_query($mysqllink, $sql ) or die("no result: ".mysqli_error($mysqllink));
-                $telrow=mysqli_fetch_row($resultset);
-                if($telrow != NULL)
-                {
-                  $telprice=$telrow[0];
-                }
-                else
-                {
-                  $telprice=0;
-                }
-
-                $sql="SELECT `oneyear_price` FROM `TVPacks` WHERE `TVID` = $tvid";
-                $resultset = mysqli_query($mysqllink, $sql ) or die("no result: ".mysqli_error($mysqllink));
-                $tvrow=mysqli_fetch_row($resultset);
-                if($tvrow != NULL)
-                {
-                  $tvprice=$tvrow[0];
-                }
-                else
-                {
-                  $tvprice=0;
-                }
-
-                mysqli_close($mysqllink);
-
-                $summonthly=$internetprice+$telprice+$tvprice;
 
                 echo '<td>'.$internetprice.'</td>';
                 echo '<td>'.$telprice.'</td>';
                 echo '<td>'.$tvprice.'</td>';
                 echo '<td>'.$summonthly.'</td>';
-              }
-              elseif ($subtime=2)
-              {
-                $sql="SELECT `twoyear_price` FROM `InternetPacks` WHERE `NetID` = $internetid";
-                $resultset = mysqli_query($mysqllink, $sql ) or die("no result: ".mysqli_error($mysqllink));
-                $internetrow=mysqli_fetch_row($resultset);
-                if($internetrow != NULL)
-                {
-                  $internetprice=$internetrow[0];
-                }
-                else
-                {
-                  $internetprice=0;
-                }
-
-                $sql="SELECT `MonthlyPrice` FROM `TelPacks` WHERE `TelPackID` = $telid";
-                $resultset = mysqli_query($mysqllink, $sql ) or die("no result: ".mysqli_error($mysqllink));
-                $telrow=mysqli_fetch_row($resultset);
-                if($telrow != NULL)
-                {
-                  $telprice=$telrow[0];
-                }
-                else
-                {
-                  $telprice=0;
-                }
-
-                $sql="SELECT `twoyear_price` FROM `TVPacks` WHERE `TVID` = $tvid";
-                $resultset = mysqli_query($mysqllink, $sql ) or die("no result: ".mysqli_error($mysqllink));
-                $tvrow=mysqli_fetch_row($resultset);
-                if($tvrow != NULL)
-                {
-                  $tvprice=$tvrow[0];
-                }
-                else
-                {
-                  $tvprice=0;
-                }
-
-                mysqli_close($mysqllink);
-
-                $summonthly=$internetprice+$telprice+$tvprice;
-
-                echo '<td>'.$internetprice.'</td>';
-                echo '<td>'.$telprice.'</td>';
-                echo '<td>'.$tvprice.'</td>';
-                echo '<td>'.$summonthly.'</td>';
-              }
-              else
-              {
-                $sql="SELECT `MonthlyPrice` FROM `TelPacks` WHERE `TelPackID` LIKE '$telid'";
-                $resultset = mysqli_query($mysqllink, $sql ) or die("no result: ".mysqli_error($mysqllink));
-                $telrow=mysqli_fetch_row($resultset);
-                if($telrow != NULL)
-                {
-                  $telprice=$telrow[4];
-                }
-                else
-                {
-                  $telprice=0;
-                }
-
-                $internetprice=0;
-                $tvprice=0;
-
-                $summonthly=$internetprice+$telprice+$tvprice;
-
-                echo '<td>'.$internetprice.'</td>';
-                echo '<td>'.$telprice.'</td>';
-                echo '<td>'.$tvprice.'</td>';
-                echo '<td>'.$summonthly.'</td>';
-              }
             ?>
 				  </tr>
 				</tbody>

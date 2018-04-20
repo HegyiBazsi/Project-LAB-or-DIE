@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html lang="hu">
+	<?php
+	  session_start();
+		$id=$_SESSION["id"];
+
+	?>
 	<head>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -19,13 +24,17 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Hibás Felhasználónév vagy jelszó</h4>
+          <h4 class="modal-title">Felhasználói fiók törlésének megerősítése</h4>
         </div>
         <div class="modal-body">
-          <p>Kérem jelentkezzen be újra vagy ha nincs regisztrálva regisztráljon!</p>
+          <p>Biztosan törölni kívánja fiókját?</p>
+          <p>Ha igen akkor az értettem négyzet kipipálása után a tovább gombra nyomással ezt megerősítheti és vissza lép a főoldalra, a négyzet kipilása nélkül vissza léphet az oldalára!</p>
         </div>
         <div class="modal-footer">
-          <a href="index.html"><button type="button" class="btn btn-default" data-dismiss="modal" h>Tovább</button></a>
+					<form action="post.php" method="get">
+						Értettem<input type="checkbox" value="ertettem">
+	         	<button type="submit" class="btn btn-default" data-dismiss="modal" h>Tovább</button>
+					</form>
         </div>
       </div>
 
