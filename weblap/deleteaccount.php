@@ -2,7 +2,7 @@
 <html lang="hu">
 	<?php
 	  session_start();
-		$id=$_SESSION["id"];
+		$id=$_SESSION["delid"];
 
 	?>
 	<head>
@@ -31,9 +31,23 @@
           <p>Ha igen akkor az értettem négyzet kipipálása után a tovább gombra nyomással ezt megerősítheti és vissza lép a főoldalra, a négyzet kipilása nélkül vissza léphet az oldalára!</p>
         </div>
         <div class="modal-footer">
-					<form action="post.php" method="get">
-						Értettem<input type="checkbox" value="ertettem">
+					<form action="post.php" method="post">
+						<?php
+						  session_start();
+							$delid=$_SESSION["delid"];
+							echo '<input type="hidden" name="delete" value="true">';
+							echo '<input type="hidden" name="id" value="$delid">';
+						?>
+
 	         	<button type="submit" class="btn btn-default" data-dismiss="modal" h>Tovább</button>
+					</form>
+					<form action="post.php" method="post">
+						<?php
+						  session_start();
+		          $_SESSION["delemail"] = $_SESSION["email"];
+							$_SESSION["delpassword"] = $_SESSION["password"];
+						?>
+	         	<button type="submit" class="btn btn-default" data-dismiss="modal" h>Vissza</button>
 					</form>
         </div>
       </div>

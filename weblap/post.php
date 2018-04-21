@@ -1,5 +1,6 @@
 <?php
       header("Content-type: text/html; charset=utf-8");
+      session_start();
       if(isset($_POST['lastname']))
       {
         include "php/connect.php";
@@ -34,7 +35,7 @@
         header('Location: index.html');
       }
       //user.php sql code
-      elseif (isset($_POST['username']) && isset($_POST['password']))
+      elseif ((isset($_POST['username']) && isset($_POST['password'])) || (isset($_SESSION["delemail"]) && isset($_SESSION["delpassword"])))
       {
         header("Content-type: text/html; charset=utf-8");
         include "php/connect.php";
@@ -257,15 +258,13 @@
           $_SESSION["summonthly"]=$summonthly;
 
         }
-        else
+      }
+      elseif (isset $_POST["delete"])
+      {
+        echo törlés;
+        $id=$_POST["id"];
+        if($del=true)
         {
-          header('Location: failedlogin.html');
-        }
-
-        if(isset($_GET['ertettem'])
-        {
-          session_start();
-          $id=$_SESSION["id"];
           $sql="DELETE FROM `Customers` WHERE `ID` = $id ";
           $resultset = mysqli_query($mysqllink, $sql ) or die("data transfer error: ".mysqli_error($mysqllink));
           mysqli_close($mysqllink);
@@ -273,24 +272,12 @@
           $sql="DELETE * FROM `Subscription_Customers` WHERE `CustomerID` = $id";
           $resultset = mysqli_query($mysqllink, $sql ) or die("data transfer error: ".mysqli_error($mysqllink));
           mysqli_close($mysqllink);
+
           header('Location: index.html');
         }
         else
         {
-          session_start();
-
-          $_SESSION["name"] = $name;
-          $_SESSION["email"] = $email;
-          $_SESSION["password"] = $password;
-          $_SESSION["id"]= $id;
-          $sql="SELECT * FROM `Subscription_Customers` WHERE `CustomerID` = $id";
-          $resultset = mysqli_query($mysqllink, $sql );
-          $subrow=mysqli_fetch_row($resultset);
-
-          if($subrow != NULL)
-          {
-            header('Location: user.php');
-          }
+          header('Location: failedlogin.html');
         }
         mysqli_close($mysqllink);
       }
