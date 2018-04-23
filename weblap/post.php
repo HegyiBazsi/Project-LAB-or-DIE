@@ -1,6 +1,5 @@
 <?php
       header("Content-type: text/html; charset=utf-8");
-      session_start();
       if(isset($_POST['lastname']))
       {
         include "php/connect.php";
@@ -35,7 +34,7 @@
         header('Location: index.html');
       }
       //user.php sql code
-      elseif ((isset($_POST['username']) && isset($_POST['password'])) || (isset($_SESSION["delemail"]) && isset($_SESSION["delpassword"])))
+      elseif (((isset($_POST['username']) && isset($_POST['password']))))
       {
         header("Content-type: text/html; charset=utf-8");
         include "php/connect.php";
@@ -259,27 +258,10 @@
 
         }
       }
-      elseif (isset $_POST["delete"])
+      else
       {
-        echo törlés;
-        $id=$_POST["id"];
-        if($del=true)
-        {
-          $sql="DELETE FROM `Customers` WHERE `ID` = $id ";
-          $resultset = mysqli_query($mysqllink, $sql ) or die("data transfer error: ".mysqli_error($mysqllink));
-          mysqli_close($mysqllink);
-
-          $sql="DELETE * FROM `Subscription_Customers` WHERE `CustomerID` = $id";
-          $resultset = mysqli_query($mysqllink, $sql ) or die("data transfer error: ".mysqli_error($mysqllink));
-          mysqli_close($mysqllink);
-
-          header('Location: index.html');
-        }
-        else
-        {
-          header('Location: failedlogin.html');
-        }
-        mysqli_close($mysqllink);
+        header('Location: failedlogin.html');
       }
+      mysqli_close($mysqllink);
 
 ?>
