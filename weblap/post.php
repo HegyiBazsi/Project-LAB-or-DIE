@@ -33,7 +33,8 @@
 
         header('Location: index.html');
       }
-      elseif (isset($_POST['username']) && isset($_POST['password']))
+      //user.php sql code
+      elseif (((isset($_POST['username']) && isset($_POST['password']))))
       {
         header("Content-type: text/html; charset=utf-8");
         include "php/connect.php";
@@ -71,12 +72,196 @@
             header('Location: user.php');
           }
 
-        }
-        else
-        {
-          header('Location: failedlogin.html');
-        }
+          //subscription tabs
+          include "php/connect.php";
+          $sql="SELECT * FROM `Subscription_Customers` WHERE `CustomerID` = $id";
+          $resultset = mysqli_query($mysqllink, $sql ) or die("no result: ".mysqli_error($mysqllink));
+          $subrow=mysqli_fetch_row($resultset);
+          if($subrow != NULL)
+          {
+            $internetid=$subrow[4];
+            $tvid=$subrow[6];
+            $telid=$subrow[5];
+          }
 
-        mysqli_close($mysqllink);
+          mysqli_close($mysqllink);
+          include "php/connect.php";
+
+          $sql="SELECT `Name` FROM `InternetPacks` WHERE `NetID` = $internetid";
+          $resultset = mysqli_query($mysqllink, $sql ) or die("no result: ".mysqli_error($mysqllink));
+          $internetrow=mysqli_fetch_row($resultset);
+          if($internetrow != NULL)
+          {
+
+            $internetname =$internetnam.$internetrow[0];
+          }
+          else
+          {
+            $internetname="nincs";
+          }
+
+          mysqli_close($mysqllink);
+          include "php/connect.php";
+
+          $sql="SELECT `TelPackName` FROM `TelPacks` WHERE `TelPackID` = $telid";
+          $resultset = mysqli_query($mysqllink, $sql ) or die("no result: ".mysqli_error($mysqllink));
+          $telrow=mysqli_fetch_row($resultset);
+          if($telrow != NULL)
+          {
+            $telname=$telrow[0];
+          }
+          else
+          {
+            $telname="nincs";
+          }
+
+          mysqli_close($mysqllink);
+          include "php/connect.php";
+
+          $sql="SELECT `Name` FROM `TVPacks` WHERE `TVID` = $tvid";
+          $resultset = mysqli_query($mysqllink, $sql ) or die("no result: ".mysqli_error($mysqllink));
+          $tvrow=mysqli_fetch_row($resultset);
+          if($tvrow != NULL)
+          {
+            $tvname=$tvrow[0];
+          }
+          else
+          {
+            $tvname="nincs";
+          }
+          $_SESSION["internetname"]=$internetname;
+          $_SESSION["telname"]=$telname;
+          $_SESSION["tvname"]=$tvname;
+          mysqli_close($mysqllink);
+
+          //price tabs
+          include "php/connect.php";
+          $sql="SELECT * FROM `Subscription_Customers` WHERE `CustomerID` = $id";
+          $resultset = mysqli_query($mysqllink, $sql ) or die("no result: ".mysqli_error($mysqllink));
+          $subrow=mysqli_fetch_row($resultset);
+          if($subrow != NULL)
+          {
+            $internetid=$subrow[4];
+            $tvid=$subrow[6];
+            $telid=$subrow[5];
+            $subtime=$subrow[3];
+
+          }
+          if($subtime=1)
+          {
+            $sql="SELECT `oneyear_price` FROM `InternetPacks` WHERE `NetID` = $internetid";
+            $resultset = mysqli_query($mysqllink, $sql ) or die("no result: ".mysqli_error($mysqllink));
+            $internetrow=mysqli_fetch_row($resultset);
+            if($internetrow != NULL)
+            {
+              $internetprice=$internetrow[0];
+            }
+            else
+            {
+              $internetprice=0;
+            }
+
+            $sql="SELECT `MonthlyPrice` FROM `TelPacks` WHERE `TelPackID` = $telid";
+            $resultset = mysqli_query($mysqllink, $sql ) or die("no result: ".mysqli_error($mysqllink));
+            $telrow=mysqli_fetch_row($resultset);
+            if($telrow != NULL)
+            {
+              $telprice=$telrow[0];
+            }
+            else
+            {
+              $telprice=0;
+            }
+
+            $sql="SELECT `oneyear_price` FROM `TVPacks` WHERE `TVID` = $tvid";
+            $resultset = mysqli_query($mysqllink, $sql ) or die("no result: ".mysqli_error($mysqllink));
+            $tvrow=mysqli_fetch_row($resultset);
+            if($tvrow != NULL)
+            {
+              $tvprice=$tvrow[0];
+            }
+            else
+            {
+              $tvprice=0;
+            }
+
+            mysqli_close($mysqllink);
+
+            $summonthly=$internetprice+$telprice+$tvprice;
+          }
+          elseif ($subtime=2)
+          {
+            $sql="SELECT `twoyear_price` FROM `InternetPacks` WHERE `NetID` = $internetid";
+            $resultset = mysqli_query($mysqllink, $sql ) or die("no result: ".mysqli_error($mysqllink));
+            $internetrow=mysqli_fetch_row($resultset);
+            if($internetrow != NULL)
+            {
+              $internetprice=$internetrow[0];
+            }
+            else
+            {
+              $internetprice=0;
+            }
+
+            $sql="SELECT `MonthlyPrice` FROM `TelPacks` WHERE `TelPackID` = $telid";
+            $resultset = mysqli_query($mysqllink, $sql ) or die("no result: ".mysqli_error($mysqllink));
+            $telrow=mysqli_fetch_row($resultset);
+            if($telrow != NULL)
+            {
+              $telprice=$telrow[0];
+            }
+            else
+            {
+              $telprice=0;
+            }
+
+            $sql="SELECT `twoyear_price` FROM `TVPacks` WHERE `TVID` = $tvid";
+            $resultset = mysqli_query($mysqllink, $sql ) or die("no result: ".mysqli_error($mysqllink));
+            $tvrow=mysqli_fetch_row($resultset);
+            if($tvrow != NULL)
+            {
+              $tvprice=$tvrow[0];
+            }
+            else
+            {
+              $tvprice=0;
+            }
+
+            mysqli_close($mysqllink);
+
+            $summonthly=$internetprice+$telprice+$tvprice;
+          }
+          else
+          {
+            $sql="SELECT `MonthlyPrice` FROM `TelPacks` WHERE `TelPackID` LIKE '$telid'";
+            $resultset = mysqli_query($mysqllink, $sql ) or die("no result: ".mysqli_error($mysqllink));
+            $telrow=mysqli_fetch_row($resultset);
+            if($telrow != NULL)
+            {
+              $telprice=$telrow[4];
+            }
+            else
+            {
+              $telprice=0;
+            }
+
+            $internetprice=0;
+            $tvprice=0;
+
+            $summonthly=$internetprice+$telprice+$tvprice;
+          }
+
+          $_SESSION["internetprice"]=$internetprice;
+          $_SESSION["telprice"]=$telprice;
+          $_SESSION["tvprice"]=$tvprice;
+          $_SESSION["summonthly"]=$summonthly;
+
+        }
       }
+      else
+      {
+        header('Location: failedlogin.html');
+      }
+      mysqli_close($mysqllink);
+
 ?>
