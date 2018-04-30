@@ -226,10 +226,10 @@
                   <form action="post.php" method="post">
                   <tr>
                     <td>
-                      <div class="input-field col s12">
+                      <div class="input-field blue-text col s12">
 
                         <?php
-                          echo '<select name="Internetupdate">';
+                          echo '<select>';
                           $host="localhost";
                           $user="plidrendszer";
                           $pass="projektlab";
@@ -237,14 +237,27 @@
                           $conn = new mysqli($host,$user,$pass,$db)
                           or die ('Cannot connect to db');
                           mysqli_set_charset($conn,"utf8");
-                          $result = $conn->query("SELECT `NetID` , `Name` FROM `InternetPacks` WHERE `Name`  NOT LIKE '$internetname'");
-                          echo '<option value="">Jelenlegi Internet csomagja: '.$internetname.' </option>';
+                          $result = $conn->query("SELECT `NetID` , `Name`, `oneyear_price`, `twoyear_price` FROM `InternetPacks` WHERE `Name`  NOT LIKE '$internetname'");
+                          echo '<option value="">Jelenlegi Internet csomagja: '.$internetname.' Ára: '.$internetprice.' </option>';
                           while ($subrow = $result->fetch_assoc())
                           {
-                            unset($packid, $packname);
+                            unset($packid, $packname,$oneyearprice,$twoyearprice);
                             $packid= $subrow['NetID'];
                             $packname = $subrow['Name'];
-                            echo '<option value="'.$packid.'">'.$packname.'</option>';
+                            $oneyearprice = $subrow['oneyear_price'];
+                            $twoyearprice = $subrow['twoyear_price'];
+                            if($subtime=1)
+                            {
+                              echo '<option value="'.$packid.'">'.$packname.'" Ára egy évre: "'.$oneyearprice.'</option>';
+                            }
+                            elseif($subtime = 2)
+                            {
+                              echo '<option value="'.$packid.'">'.$packname.'" Ára két évre: "'.$twoyearprice.'</option>';
+                            }
+                            else
+                            {
+                              echo '<option value="'.$packid.'">'.$packname.'" Árak(1,2 évre): "'.$oneyearprice.','.$twoyearprice.'</option>';
+                            }
 
                           }
                           echo '</select>';
@@ -256,7 +269,7 @@
                     <div class="input-field col s12">
 
                       <?php
-                        echo '<select name="Telefonupdate">';
+                        echo '<select>';
                         $host="localhost";
                         $user="plidrendszer";
                         $pass="projektlab";
@@ -265,7 +278,7 @@
                         or die ('Cannot connect to db');
                         mysqli_set_charset($conn,"utf8");
                         $result = $conn->query("SELECT `TelPackID`,`Name` FROM `TelPacks` WHERE `Name`  NOT LIKE '$telname'");
-                        echo '<option value="">Jelenlegi Telefon csomagja: '.$telname.' </option>';
+                        echo '<option value="">Jelenlegi Telefon csomagja: '.$telname.' Ára: '.$telprice.' </option>';
                         while ($subrow = $result->fetch_assoc())
                         {
                           unset($packid, $packname);
@@ -282,7 +295,7 @@
                     <div class="input-field col s12">
 
                       <?php
-                        echo '<select name="TVupdate">';
+                        echo '<select>';
                         $host="localhost";
                         $user="plidrendszer";
                         $pass="projektlab";
@@ -290,14 +303,28 @@
                         $conn = new mysqli($host,$user,$pass,$db)
                         or die ('Cannot connect to db');
                         mysqli_set_charset($conn,"utf8");
-                        $result = $conn->query("SELECT `TVID`, `Name` FROM `TVPacks` WHERE `Name`  NOT LIKE '$tvname'");
-                        echo '<option value="">Jelenlegi TV csomagja: '.$tvname.' </option>';
+                        $result = $conn->query("SELECT `TVID`, `Name`, `oneyear_price`, `twoyear_price`  FROM `TVPacks` WHERE `Name`  NOT LIKE '$tvname'");
+                        echo '<option value="">Jelenlegi TV csomagja: '.$tvname.' Ára: '.$tvprice.' </option>';
                         while ($subrow = $result->fetch_assoc())
                         {
                           unset($packid, $packname);
                           $packid= $subrow['TVID'];
                           $packname = $subrow['Name'];
-                          echo '<option value="'.$packid.'">'.$packname.'</option>';
+                          $oneyearprice = $subrow['oneyear_price'];
+                          $twoyearprice = $subrow['twoyear_price'];
+                          if($subtime=1)
+                          {
+                            echo '<option value="'.$packid.'">'.$packname.'" Ára egy évre: "'.$oneyearprice.'</option>';
+                          }
+                          elseif($subtime = 2)
+                          {
+                            echo '<option value="'.$packid.'">'.$packname.'" Ára két évre: "'.$twoyearprice.'</option>';
+                          }
+                          else
+                          {
+                            echo '<option value="'.$packid.'">'.$packname.'" Árak(1,2 évre): "'.$oneyearprice.','.$twoyearprice.'</option>';
+                          }
+
 
                         }
                         echo '</select>';
@@ -306,6 +333,23 @@
                     </div>
                   </td>
 
+                </tr>
+                <tr>
+                  <td>
+                    <div class="input-field col s12">
+                      <input type="text" name="Internetupdate" size="30" />
+                    </div>
+                  </td>
+                  <td>
+                    <div class="input-field col s12">
+                      <input type="text" name="Telefonupdate" size="30" />
+                    </div>
+                  </td>
+                  <td>
+                    <div class="input-field col s12">
+                      <input type="text" name="TVupdate" size="30" />
+                    </div>
+                  </td>
                 </tr>
                 <tr>
                   <td>
