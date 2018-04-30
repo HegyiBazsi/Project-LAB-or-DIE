@@ -6,6 +6,17 @@
         $email=$_SESSION["email"];
         $id=$_SESSION["id"];
 
+        $internetname=$_SESSION["internetname"];
+        $telname=$_SESSION["telname"];
+        $tvname=$_SESSION["tvname"];
+        $internetprice=$_SESSION["internetprice"];
+        $telprice=$_SESSION["telprice"];
+        $tvprice=$_SESSION["tvprice"];
+        $summonthly=$_SESSION["summonthly"];
+        $datefrom=$_SESSION["datefrom"];
+        $dateto=$_SESSION["dateto"];
+        $szerzodott=$_SESSION["szerzodott"];
+
     ?>
     <head>
     <!--Import Google Icon Font-->
@@ -122,7 +133,7 @@
 
 <!--Subscription tab-->
     <div class="col s12">
-			<table id="sub" class="centered">
+			<table id="sub" class=" bordered centered">
 				<thead>
 					<tr>
 						<th>Internet csomag</th>
@@ -135,64 +146,6 @@
 				<tbody>
 					<tr>
             <?php
-              include "php/connect.php";
-              $sql="SELECT * FROM `Subscription_Customers` WHERE `CustomerID` = $id";
-              $resultset = mysqli_query($mysqllink, $sql ) or die("no result: ".mysqli_error($mysqllink));
-              $subrow=mysqli_fetch_row($resultset);
-              if($subrow != NULL)
-              {
-                $internetid=$subrow[4];
-                $tvid=$subrow[6];
-                $telid=$subrow[5];
-              }
-
-              mysqli_close($mysqllink);
-              include "php/connect.php";
-
-              $sql="SELECT `Name` FROM `InternetPacks` WHERE `NetID` = $internetid";
-              $resultset = mysqli_query($mysqllink, $sql ) or die("no result: ".mysqli_error($mysqllink));
-              $internetrow=mysqli_fetch_row($resultset);
-              if($internetrow != NULL)
-              {
-
-                $internetname =$internetnam.$internetrow[0];
-              }
-              else
-              {
-                $internetname="nincs";
-              }
-
-              mysqli_close($mysqllink);
-              include "php/connect.php";
-
-              $sql="SELECT `TelPackName` FROM `TelPacks` WHERE `TelPackID` = $telid";
-              $resultset = mysqli_query($mysqllink, $sql ) or die("no result: ".mysqli_error($mysqllink));
-              $telrow=mysqli_fetch_row($resultset);
-              if($telrow != NULL)
-              {
-                $telname=$telrow[0];
-              }
-              else
-              {
-                $telname="nincs";
-              }
-
-              mysqli_close($mysqllink);
-              include "php/connect.php";
-
-              $sql="SELECT `Name` FROM `TVPacks` WHERE `TVID` = $tvid";
-              $resultset = mysqli_query($mysqllink, $sql ) or die("no result: ".mysqli_error($mysqllink));
-              $tvrow=mysqli_fetch_row($resultset);
-              if($tvrow != NULL)
-              {
-                $tvname=$tvrow[0];
-              }
-              else
-              {
-                $tvname="nincs";
-              }
-
-              mysqli_close($mysqllink);
               echo '<td>'.$internetname.'</td>';
               echo '<td>'.$telname.'</td>';
               echo '<td>'.$tvname.'</td>';
@@ -223,136 +176,10 @@
 				<tbody>
 				  <tr>
            <?php
-              include "php/connect.php";
-              $sql="SELECT * FROM `Subscription_Customers` WHERE `CustomerID` = $id";
-              $resultset = mysqli_query($mysqllink, $sql ) or die("no result: ".mysqli_error($mysqllink));
-              $subrow=mysqli_fetch_row($resultset);
-              if($subrow != NULL)
-              {
-                $internetid=$subrow[4];
-                $tvid=$subrow[6];
-                $telid=$subrow[5];
-                $subtime=$subrow[3];
-
-              }
-              if($subtime=1)
-              {
-                $sql="SELECT `oneyear_price` FROM `InternetPacks` WHERE `NetID` = $internetid";
-                $resultset = mysqli_query($mysqllink, $sql ) or die("no result: ".mysqli_error($mysqllink));
-                $internetrow=mysqli_fetch_row($resultset);
-                if($internetrow != NULL)
-                {
-                  $internetprice=$internetrow[0];
-                }
-                else
-                {
-                  $internetprice=0;
-                }
-
-                $sql="SELECT `MonthlyPrice` FROM `TelPacks` WHERE `TelPackID` = $telid";
-                $resultset = mysqli_query($mysqllink, $sql ) or die("no result: ".mysqli_error($mysqllink));
-                $telrow=mysqli_fetch_row($resultset);
-                if($telrow != NULL)
-                {
-                  $telprice=$telrow[0];
-                }
-                else
-                {
-                  $telprice=0;
-                }
-
-                $sql="SELECT `oneyear_price` FROM `TVPacks` WHERE `TVID` = $tvid";
-                $resultset = mysqli_query($mysqllink, $sql ) or die("no result: ".mysqli_error($mysqllink));
-                $tvrow=mysqli_fetch_row($resultset);
-                if($tvrow != NULL)
-                {
-                  $tvprice=$tvrow[0];
-                }
-                else
-                {
-                  $tvprice=0;
-                }
-
-                mysqli_close($mysqllink);
-
-                $summonthly=$internetprice+$telprice+$tvprice;
-
                 echo '<td>'.$internetprice.'</td>';
                 echo '<td>'.$telprice.'</td>';
                 echo '<td>'.$tvprice.'</td>';
                 echo '<td>'.$summonthly.'</td>';
-              }
-              elseif ($subtime=2)
-              {
-                $sql="SELECT `twoyear_price` FROM `InternetPacks` WHERE `NetID` = $internetid";
-                $resultset = mysqli_query($mysqllink, $sql ) or die("no result: ".mysqli_error($mysqllink));
-                $internetrow=mysqli_fetch_row($resultset);
-                if($internetrow != NULL)
-                {
-                  $internetprice=$internetrow[0];
-                }
-                else
-                {
-                  $internetprice=0;
-                }
-
-                $sql="SELECT `MonthlyPrice` FROM `TelPacks` WHERE `TelPackID` = $telid";
-                $resultset = mysqli_query($mysqllink, $sql ) or die("no result: ".mysqli_error($mysqllink));
-                $telrow=mysqli_fetch_row($resultset);
-                if($telrow != NULL)
-                {
-                  $telprice=$telrow[0];
-                }
-                else
-                {
-                  $telprice=0;
-                }
-
-                $sql="SELECT `twoyear_price` FROM `TVPacks` WHERE `TVID` = $tvid";
-                $resultset = mysqli_query($mysqllink, $sql ) or die("no result: ".mysqli_error($mysqllink));
-                $tvrow=mysqli_fetch_row($resultset);
-                if($tvrow != NULL)
-                {
-                  $tvprice=$tvrow[0];
-                }
-                else
-                {
-                  $tvprice=0;
-                }
-
-                mysqli_close($mysqllink);
-
-                $summonthly=$internetprice+$telprice+$tvprice;
-
-                echo '<td>'.$internetprice.'</td>';
-                echo '<td>'.$telprice.'</td>';
-                echo '<td>'.$tvprice.'</td>';
-                echo '<td>'.$summonthly.'</td>';
-              }
-              else
-              {
-                $sql="SELECT `MonthlyPrice` FROM `TelPacks` WHERE `TelPackID` LIKE '$telid'";
-                $resultset = mysqli_query($mysqllink, $sql ) or die("no result: ".mysqli_error($mysqllink));
-                $telrow=mysqli_fetch_row($resultset);
-                if($telrow != NULL)
-                {
-                  $telprice=$telrow[4];
-                }
-                else
-                {
-                  $telprice=0;
-                }
-
-                $internetprice=0;
-                $tvprice=0;
-
-                $summonthly=$internetprice+$telprice+$tvprice;
-
-                echo '<td>'.$internetprice.'</td>';
-                echo '<td>'.$telprice.'</td>';
-                echo '<td>'.$tvprice.'</td>';
-                echo '<td>'.$summonthly.'</td>';
-              }
             ?>
 				  </tr>
 				</tbody>
@@ -361,7 +188,7 @@
 
 <!--Husegido datuma és hosszabitas-->
     <div id="subtime" class="col s12">
-			<table class="striped centered">
+			<table class="bordered centered">
 				<thead>
 				  <tr>
 					  <th>Hűségidő kezdete</th>
@@ -372,28 +199,9 @@
 
 				<tbody>
           <?php
-             include "php/connect.php";
-             $sql="SELECT * FROM `Subscription_Customers` WHERE `CustomerID` = $id";
-             $resultset = mysqli_query($mysqllink, $sql ) or die("no result: ".mysqli_error($mysqllink));
-             $subrow=mysqli_fetch_row($resultset);
-             if($subrow != NULL)
-             {
-               $datefrom=$subrow[2];
-               $subtime=$subrow[3];
-               $dateto=date('Y-m-d', strtotime($datefrom. "+$subtime years"));
-               $currdate=date('Y-m-d');
-               if($currdate<$dateto)
-               {
-                 $szerzodott="még szerződött";
-               }
-               else {
-                 $szerzodott="nincs szerződése";
-               }
-             }
              echo '<td>'.$datefrom.'</td>';
              echo '<td>'.$dateto.'</td>';
              echo '<td>'.$szerzodott.'</td>';
-
           ?>
           <tr>
             <td></td>
@@ -402,37 +210,117 @@
 			</table>
 		  </div>
 
-      <!--TEST 3 - TV-->
+      <!--Sub update-->
           <div id="updatesub" class="col s12">
-      			<table class="striped centered">
+      			<table class="bordered centered">
       				<thead>
       				  <tr>
-      					  <th>Name</th>
-      					  <th>Item Name</th>
-      					  <th>Item Price</th>
+      					  <th>Internet</th>
+      					  <th>Telefon</th>
+      					  <th>TV</th>
       				  </tr>
 
       				</thead>
 
       				<tbody>
-      				  <tr>
-      					<td>Alvin</td>
-      					<td>Eclair</td>
-      					<td>$0.87</td>
-      				  </tr>
-      				  <tr>
-      					<td>Alan</td>
-      					<td>Jellybean</td>
-      					<td>$3.76</td>
-      				  </tr>
-      				  <tr>
-      					<td>Jonathan</td>
-      					<td>Lollipop</td>
-      					<td>$7.00</td>
-      				  </tr>
-      				</tbody>
-      			</table>
-      		  </div>
+                  <form action="post.php" method="post">
+                  <tr>
+                    <td>
+                      <div class="input-field col s12">
+
+                        <?php
+                          echo '<select name="Internetupdate">';
+                          $host="localhost";
+                          $user="plidrendszer";
+                          $pass="projektlab";
+                          $db="plidrendszer";
+                          $conn = new mysqli($host,$user,$pass,$db)
+                          or die ('Cannot connect to db');
+                          mysqli_set_charset($conn,"utf8");
+                          $result = $conn->query("SELECT `NetID` , `Name` FROM `InternetPacks` WHERE `Name`  NOT LIKE '$internetname'");
+                          echo '<option value="">Jelenlegi Internet csomagja: '.$internetname.' </option>';
+                          while ($subrow = $result->fetch_assoc())
+                          {
+                            unset($packid, $packname);
+                            $packid= $subrow['NetID'];
+                            $packname = $subrow['Name'];
+                            echo '<option value="'.$packid.'">'.$packname.'</option>';
+
+                          }
+                          echo '</select>';
+                        ?>
+
+                      </div>
+                  </td>
+                  <td>
+                    <div class="input-field col s12">
+
+                      <?php
+                        echo '<select name="Telefonupdate">';
+                        $host="localhost";
+                        $user="plidrendszer";
+                        $pass="projektlab";
+                        $db="plidrendszer";
+                        $conn = new mysqli($host,$user,$pass,$db)
+                        or die ('Cannot connect to db');
+                        mysqli_set_charset($conn,"utf8");
+                        $result = $conn->query("SELECT `TelPackID`,`Name` FROM `TelPacks` WHERE `Name`  NOT LIKE '$telname'");
+                        echo '<option value="">Jelenlegi Telefon csomagja: '.$telname.' </option>';
+                        while ($subrow = $result->fetch_assoc())
+                        {
+                          unset($packid, $packname);
+                          $packid= $subrow['TelPackID'];
+                          $packname = $subrow['Name'];
+                          echo '<option value="'.$packid.'">'.$packname.'</option>';
+
+                        }
+                        echo '</select>';
+                      ?>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="input-field col s12">
+
+                      <?php
+                        echo '<select name="TVupdate">';
+                        $host="localhost";
+                        $user="plidrendszer";
+                        $pass="projektlab";
+                        $db="plidrendszer";
+                        $conn = new mysqli($host,$user,$pass,$db)
+                        or die ('Cannot connect to db');
+                        mysqli_set_charset($conn,"utf8");
+                        $result = $conn->query("SELECT `TVID`, `Name` FROM `TVPacks` WHERE `Name`  NOT LIKE '$tvname'");
+                        echo '<option value="">Jelenlegi TV csomagja: '.$tvname.' </option>';
+                        while ($subrow = $result->fetch_assoc())
+                        {
+                          unset($packid, $packname);
+                          $packid= $subrow['TVID'];
+                          $packname = $subrow['Name'];
+                          echo '<option value="'.$packid.'">'.$packname.'</option>';
+
+                        }
+                        echo '</select>';
+                        echo '<input type="hidden" name="custid" value="'.$id.'"></input>';
+                      ?>
+                    </div>
+                  </td>
+
+                </tr>
+                <tr>
+                  <td>
+                  </td>
+                  <td>
+
+                    <button class="btn btn-large blue" type="submit" value="Regisztáció" class="waves-effect waves-light btn center">Módosítás</button>
+                  </td>
+                  <td>
+                  </td>
+                </tr>
+              </form>
+    				</tbody>
+    			</table>
+    	</div>
   </div><!--ROW-->
 
 
@@ -464,6 +352,12 @@
       <!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+      <!-- SELECT SCRIPT -->
+      <script>
+         $(document).ready(function() {
+            $('select').material_select();
+        });
+      </script>
 		<script src="js/admin.js"></script>
     <!--MODAL SCRIPT-->
      <script type="text/javascript">
