@@ -55,7 +55,7 @@ if(isset($_POST['lastname']))
     unset($_POST['phonenumber']);
     unset($_POST['email']);
     unset( $_POST['password']);
-    header('Location: index.html');
+    header('Location: registrationsuccess.html');
 }
 //------------------------------R E G V E G E ---------------------------------------------------------------------------------
 //-------------------------------user.php sql code-----------------------------------------------------------------------------
@@ -104,7 +104,7 @@ elseif (((isset($_POST['username']) && isset($_POST['password']))))
          $_SESSION["email"] = $email;
          $_SESSION["password"] = $password;
          $_SESSION["id"]= $id;
-         
+
          include "php/connect.php";
 
          $sql="SELECT * FROM `Subscription_Customers` WHERE `CustomerID` = $id";
