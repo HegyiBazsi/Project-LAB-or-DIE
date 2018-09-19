@@ -15,7 +15,7 @@ if(isset($_POST['lastname']))
 
 
     $host="localhost";
-    $user="plidrendszer";
+    $user="hbszakdoga";
     $pass="projektlab";
     $db="plidrendszer";
     $mysqli = new mysqli($host,$user,$pass,$db) or die ('Cannot connect to db');
@@ -71,7 +71,7 @@ elseif (((isset($_POST['username']) && isset($_POST['password']))))
     $row=mysqli_fetch_row($resultset);*/
 
     $host="localhost";
-    $user="plidrendszer";
+    $user="hbszakdoga";
     $pass="projektlab";
     $db="plidrendszer";
     $mysqli = new mysqli($host,$user,$pass,$db) or die ('Cannot connect to db');
