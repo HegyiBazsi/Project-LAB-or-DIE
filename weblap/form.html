@@ -1,0 +1,143 @@
+<html lang="hu">
+	<head>
+		<!--Import Google Icon Font-->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<!--Import materialize.css-->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+		<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+		<!--Let browser know website is optimized for mobile-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+		<link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+		<link href="css/indexstyle.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+		<link rel="icon" href="./img/reg/reg.png">
+	</head>
+
+	<body>
+    <!--NAVBAR-->
+        <nav class="navbar-fixed-top">
+			<div class="nav-wrapper teal">
+				<a href="#!" class="brand-logo center white-text">P-LID</a>
+				<!--BUTTONS-->
+				<ul class="right hide-on-med-and-down"  style="margin-top:5px">
+					<a href="index.html" class="btn-floating white tooltipped btn-large" data-position="bottom" data-delay="50" data-tooltip="Kezdőlap"><i class="large material-icons teal-text">home</i></a>
+				</ul>
+				<!--SIDE BAR-->
+				<nav  class="teal" role="navigation">
+					<div class="nav-wrapper container">
+						<ul id="slide-out" class="side-nav">
+							<li><div class="divider"></div></li>
+							<li><a href="index.html" ><i class="material-icons">home</i>Főoldal</a></li>
+							<li><div class="divider"></div></li>
+						</ul>
+						<a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons white-text">menu</i></a>
+					</div><!--END OF NAV-WRAPPER-->
+				</nav>   <!--END OF SIDEBAR-->
+			</div>    <!--END OF NAW WRAPPER-->
+		</nav><!--END OF NAVBAR-->
+
+
+<!----------------------------Customer data input form------------------------------------------------------>
+		<form action=post.php method=post>
+			<div class="container" style="margin-top: 100px">
+ <!--FORM-->
+				<div class="row">
+					<h2 class="center">Munkalap formanyomtatvány kitöltő</h2>
+					<br>
+					<div class="row">
+						<div class="input-field col s6">
+							<i class="material-icons prefix">account_circle</i>
+							<input type="text" name="lastname" size="30" />
+							<label>Vezeték név *</label>
+						</div>
+						<div class="input-field col s6">
+							<i class="material-icons prefix">account_circle</i>
+							<input type="text" name="firstname" size="30" />
+							<label>Keresztnév *</label>
+						</div>
+					</div><!--END OF ROW-->
+
+					<div class="row">
+						<div class="input-field col s6">
+							<i class="material-icons prefix">phone</i>
+							<input type="text" name="phonenumber" size="30" />
+							<label>Telefonszám</label>
+						</div>
+						<div class="input-field col s6">
+							<i class="material-icons prefix">email</i>
+							<input type="email" name="email">
+							<label>E-mail cím *</label>
+						</div>
+					</div><!--END OF ROW-->
+				</div><!--END OF ROW-->
+
+ <!--LOCATION-->
+				<div class="row">
+					<div class="row">
+						<div class="input-field col s6">
+							<i class="material-icons prefix">map</i>
+							<input type="number" name="cityzip" size="30" />
+							<label>Irányítószám</label>
+						</div>
+						<div class="input-field col s6">
+							<i class="material-icons prefix">location_city</i>
+							<input type="text" name="city" size="30" />
+							<label>Város</label>
+						</div>
+					</div><!--END OF ROW-->
+					<div class="row">
+						<div class="input-field col s6">
+							<i class="material-icons prefix">streetview</i>
+							<input type="text" name="street" size="30" />
+							<label>Utca</label>
+						</div>
+
+						<div class="input-field col s6">
+							<i class="material-icons prefix">place</i>
+							<input type="text" name="address" size="30" />
+							<label>Házszám</label>
+						</div>
+					</div><!--END OF ROW-->
+				</div><!--END OF ROW-->
+ <!--PASSWORD-->
+				<div class="row">
+					<div class="row">
+					<!--spacer cell-->
+						<div class="input-field col s6">
+							<i class="material-icons prefix">lock</i>
+							<input type="password" name="password"/>
+							<label>Jelszó *</label>
+						</div>
+		 <!--DATE-->
+						<div class="input-field col s6">
+							<i class="material-icons prefix">cake</i>
+							<input type="text" name="datepicker" value="">
+							<label>Születési dátum*</label>
+						</div>
+					</div><!--END OF ROW-->
+
+					<div class="row" style="text-align:center">
+					<!--OLD-->
+						<!--<input type="submit" value="Regisztáció" class="waves-effect waves-light btn center" style="vertical-aling: text-bottom"/>-->
+					<!--NEW-->
+						<button class="btn btn-large teal" type="submit" value="Regisztáció" class="waves-effect waves-light btn center">Leadás</button>
+					</div>
+				</div><!--END OF ROW-->
+			</div><!--CONTAINER-->
+		</form>
+
+<!-----------------------------------------Data to database------------------------------------------------------>
+		<!--Import jQuery before materialize.js-->
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+		<script type="text/javascript" src="js/materialize.min.js"></script>
+		<script src="js/init.js"></script>
+
+    <!--DATE SELECTOR-->
+    	<script type="text/javascript"></script>
+		<script src="js/registration.js"></script>
+	</body>
+</html>

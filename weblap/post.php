@@ -17,7 +17,7 @@ if(isset($_POST['lastname']))
     $host="localhost";
     $user="hbszakdoga";
     $pass="projektlab";
-    $db="plidrendszer";
+    $db="hbszakdoga";
     $mysqli = new mysqli($host,$user,$pass,$db) or die ('Cannot connect to db');
 
     mysqli_set_charset($mysqli,"utf8");
@@ -73,7 +73,7 @@ elseif (((isset($_POST['username']) && isset($_POST['password']))))
     $host="localhost";
     $user="hbszakdoga";
     $pass="projektlab";
-    $db="plidrendszer";
+    $db="hbszakdoga";
     $mysqli = new mysqli($host,$user,$pass,$db) or die ('Cannot connect to db');
 
     mysqli_set_charset($mysqli,"utf8");
