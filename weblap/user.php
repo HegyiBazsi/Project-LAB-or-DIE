@@ -1,11 +1,25 @@
 <!DOCTYPE html>
   <html lang="hu">
     <?php
-      /*session_start();
+        session_start();
+        /*$name="Hegyi Balázs";
+        $email="h@g.com";
+        $id=26;
+        $internetname="UTP_nagy";
+        $telname="Nagy";
+        $tvname="Ultimate";
+        $internetprice=2000;
+        $telprice=350;
+        $tvprice=4000;
+        $summonthly=6350;
+        $datefrom="2018-04-25";
+        $dateto="2020-04-25";
+        $szerzodott="igen";*/
+
+
         $name=$_SESSION["name"];
         $email=$_SESSION["email"];
         $id=$_SESSION["id"];
-
         $internetname=$_SESSION["internetname"];
         $telname=$_SESSION["telname"];
         $tvname=$_SESSION["tvname"];
@@ -15,203 +29,9 @@
         $summonthly=$_SESSION["summonthly"];
         $datefrom=$_SESSION["datefrom"];
         $dateto=$_SESSION["dateto"];
-        $szerzodott=$_SESSION["szerzodott"];*/
+        $szerzodott=$_SESSION["szerzodott"];
 
-        mysqli_stmt_bind_result($stmt, $id, $fname, $lname);
-        $name=$lname." ".$fname;
-        session_start();
-        $_SESSION["name"] = $name;
-        $_SESSION["email"] = $email;
-        $_SESSION["password"] = $password;
-        $_SESSION["id"]= $id;
-
-        include "php/connect.php";
-
-        $sql="SELECT * FROM `Subscription_Customers` WHERE `CustomerID` = $id";
-        $resultset = mysqli_query($mysqllink, $sql );
-        $subrow=mysqli_fetch_row($resultset);
-        //check if user has subscription//
-        if($subrow != NULL)
-        {
-            header('Location: user.php');
-        }
-        else
-        {
-            $date=date('Y-m-d');
-            $sql = "INSERT INTO `Subscription_Customers`(`CustomerID`, `DateFrom`, `Subtime`, `InternetPackID`, `TelPackID`, `TVPackID`) VALUES ('$id','$date',0,7,4,7);";
-            $resultset = mysqli_query($mysqllink, $sql ) or die("new sub 0 subtime data transfer error: ".mysqli_error($mysqllink));
-            mysqli_close($mysqllink);
-            header('Location: user.php');
-        }
-        //-----------------------end of login-----------------------------------------//
-        //subscription tabs
-        include "php/connect.php";
-        $sql="SELECT * FROM `Subscription_Customers` WHERE `CustomerID` = $id";
-        $resultset = mysqli_query($mysqllink, $sql ) or die("sub names no user no result: ".mysqli_error($mysqllink));
-        $subrow=mysqli_fetch_row($resultset);
-        if($subrow != NULL)
-        {
-            $internetid=$subrow[4];
-            $tvid=$subrow[6];
-            $telid=$subrow[5];
-        }
-        mysqli_close($mysqllink);
-        include "php/connect.php";
-        $sql="SELECT `Name` FROM `InternetPacks` WHERE `NetID` = $internetid";
-        $resultset = mysqli_query($mysqllink, $sql ) or die("net name no result: ".mysqli_error($mysqllink));
-        $internetrow=mysqli_fetch_row($resultset);
-        if($internetrow != NULL)
-        {
-            $internetname =$internetnam.$internetrow[0];
-        }
-        mysqli_close($mysqllink);
-        include "php/connect.php";
-        $sql="SELECT `Name` FROM `TelPacks` WHERE `TelPackID` = $telid";
-        $resultset = mysqli_query($mysqllink, $sql ) or die("tel name no result: ".mysqli_error($mysqllink));
-        $telrow=mysqli_fetch_row($resultset);
-        if($telrow != NULL)
-        {
-            $telname=$telrow[0];
-        }
-        mysqli_close($mysqllink);
-        include "php/connect.php";
-        $sql="SELECT `Name` FROM `TVPacks` WHERE `TVID` = $tvid";
-        $resultset = mysqli_query($mysqllink, $sql ) or die("tv name no result: ".mysqli_error($mysqllink));
-        $tvrow=mysqli_fetch_row($resultset);
-        if($tvrow != NULL)
-        {
-            $tvname=$tvrow[0];
-        }
-        $_SESSION["internetname"]=$internetname;
-        $_SESSION["telname"]=$telname;
-        $_SESSION["tvname"]=$tvname;
-        mysqli_close($mysqllink);
-        //price tabs
-        include "php/connect.php";
-        $sql="SELECT * FROM `Subscription_Customers` WHERE `CustomerID` = $id";
-        $resultset = mysqli_query($mysqllink, $sql ) or die("price tabs user sql no result: ".mysqli_error($mysqllink));
-        $subrow=mysqli_fetch_row($resultset);
-        if($subrow != NULL)
-        {
-            $internetid=$subrow[4];
-            $tvid=$subrow[6];
-            $telid=$subrow[5];
-            $subtime=$subrow[3];
-        }
-        if($subtime=1)
-        {
-            $sql="SELECT `oneyear_price` FROM `InternetPacks` WHERE `NetID` = $internetid";
-            $resultset = mysqli_query($mysqllink, $sql ) or die("1 year sub net no result: ".mysqli_error($mysqllink));
-            $internetrow=mysqli_fetch_row($resultset);
-            if($internetrow != NULL)
-            {
-                $internetprice=$internetrow[0];
-            }
-            $sql="SELECT `MonthlyPrice` FROM `TelPacks` WHERE `TelPackID` = $telid";
-            $resultset = mysqli_query($mysqllink, $sql ) or die("1 year sub tel no result: ".mysqli_error($mysqllink));
-            $telrow=mysqli_fetch_row($resultset);
-            if($telrow != NULL)
-            {
-                $telprice=$telrow[0];
-            }
-            $sql="SELECT `oneyear_price` FROM `TVPacks` WHERE `TVID` = $tvid";
-            $resultset = mysqli_query($mysqllink, $sql ) or die("1 year sub tv no result: ".mysqli_error($mysqllink));
-            $tvrow=mysqli_fetch_row($resultset);
-            if($tvrow != NULL)
-            {
-                $tvprice=$tvrow[0];
-            }
-            mysqli_close($mysqllink);
-            $summonthly=$internetprice+$telprice+$tvprice;
-        }
-        elseif ($subtime=2)
-        {
-            $sql="SELECT `twoyear_price` FROM `InternetPacks` WHERE `NetID` = $internetid";
-            $resultset = mysqli_query($mysqllink, $sql ) or die("2 year sub net no result: ".mysqli_error($mysqllink));
-            $internetrow=mysqli_fetch_row($resultset);
-            if($internetrow != NULL)
-            {
-                $internetprice=$internetrow[0];
-            }
-            $sql="SELECT `MonthlyPrice` FROM `TelPacks` WHERE `TelPackID` = $telid";
-            $resultset = mysqli_query($mysqllink, $sql ) or die("2 year sub tel no result: ".mysqli_error($mysqllink));
-            $telrow=mysqli_fetch_row($resultset);
-            if($telrow != NULL)
-            {
-                $telprice=$telrow[0];
-            }
-            $sql="SELECT `twoyear_price` FROM `TVPacks` WHERE `TVID` = $tvid";
-            $resultset = mysqli_query($mysqllink, $sql ) or die("2 year sub tv no result: ".mysqli_error($mysqllink));
-            $tvrow=mysqli_fetch_row($resultset);
-            if($tvrow != NULL)
-            {
-                $tvprice=$tvrow[0];
-            }
-            mysqli_close($mysqllink);
-            $summonthly=$internetprice+$telprice+$tvprice;
-        }
-        else
-        {
-            $sql="SELECT `MonthlyPrice` FROM `TelPacks` WHERE `TelPackID` LIKE '$telid'";
-            $resultset = mysqli_query($mysqllink, $sql ) or die("0 subtime no result: ".mysqli_error($mysqllink));
-            $telrow=mysqli_fetch_row($resultset);
-            if($telrow != NULL)
-            {
-                $telprice=$telrow[4];
-            }
-            $internetprice=0;
-            $tvprice=0;
-            $summonthly=$internetprice+$telprice+$tvprice;
-        }
-        $_SESSION["internetprice"]=$internetprice;
-        $_SESSION["telprice"]=$telprice;
-        $_SESSION["tvprice"]=$tvprice;
-        $_SESSION["summonthly"]=$summonthly;
-
-        // end of price tabs
-        include "php/connect.php";
-        $sql="SELECT * FROM `Subscription_Customers` WHERE `CustomerID` = $id";
-        $resultset = mysqli_query($mysqllink, $sql ) or die("subtime sql no result: ".mysqli_error($mysqllink));
-        $subrow=mysqli_fetch_row($resultset);
-        if($subrow != NULL)
-        {
-            $datefrom=$subrow[2];
-            $subtime=$subrow[3];
-            $dateto=date('Y-m-d', strtotime($datefrom. "+$subtime years"));
-            $currdate=date('Y-m-d');
-            if($currdate<$dateto)
-            {
-                $szerzodott="még szerződött";
-            }
-            else
-            {
-                $szerzodott="nincs szerződése";
-            }
-            $_SESSION["datefrom"]=$datefrom;
-            $_SESSION["dateto"]=$dateto;
-            $_SESSION["szerzodott"]=$szerzodott;
-        }
-     }
-
-     $stmt->close();
-
-     $mysqli->close();
-
-
-     $name=$_SESSION["name"];
-     $email=$_SESSION["email"];
-     $id=$_SESSION["id"];
-
-     $internetname=$_SESSION["internetname"];
-     $telname=$_SESSION["telname"];
-     $tvname=$_SESSION["tvname"];
-     $internetprice=$_SESSION["internetprice"];
-     $telprice=$_SESSION["telprice"];
-     $tvprice=$_SESSION["tvprice"];
-     $summonthly=$_SESSION["summonthly"];
-     $datefrom=$_SESSION["datefrom"];
-     $dateto=$_SESSION["dateto"];
-     $szerzodott=$_SESSION["szerzodott"];
+        
     ?>
     <head>
     <!--Import Google Icon Font-->
@@ -236,72 +56,72 @@
 				<div class="nav-wrapper container">
 				<!--SIDE BAR-->
 					<ul id="slide-out" class="side-nav">
-       					<li>
-							<div class="user-view">
-								<div class="background">
-									<img src="img/admin/back.jpg">
-								</div>
-								<a><img class="circle" src="img/admin/admin.jpg"></a>
-								<?php
+         		<li>
+  					<div class="user-view">
+  							<div class="background">
+  								<img src="img/admin/back.jpg">
+  							</div>
+  							<a><img class="circle" src="img/admin/admin.jpg"></a>
+  							<?php
                   echo '<a><span class="white-text">'.$name.'</span></a>';
   					      echo '<a><span class="white-text">'.$email.'</span></a>';
                 ?>
-							</div>
-						</li>
-						<!--USER SIDEBAR-->
-						<li>
-							<a class="subheader red-text ">Felhasználói adatok</a>
-						</li>
-						<li>
-							<a href="#!" class = "waves-effect"><i class="material-icons">person_add</i>Hozzáadás</a>
-						</li>
-						<li>
-							<div class="divider"></div>
-						</li>
-						<li>
-							<a href="#!" class = "waves-effect"><i class="material-icons">edit</i>Hűségidő Módosítása</a>
-						</li>
-						<li>
-							<div class="divider"></div>
-						</li>
-						<li>
-							<a href="#!" class = "waves-effect"><i class="material-icons">delete</i>Fiók Törlése</a>
-						</li>
+  					</div>
+  					</li>
+  					<!--USER SIDEBAR-->
+  					<li>
+  						<a class="subheader red-text ">Felhasználói adatok</a>
+  					</li>
+  					<li>
+  						<a href="#!" class = "waves-effect"><i class="material-icons">person_add</i>Hozzáadás</a>
+  					</li>
+  					<li>
+  						<div class="divider"></div>
+  					</li>
+  					<li>
+  						<a href="#!" class = "waves-effect"><i class="material-icons">edit</i>Hűségidő Módosítása</a>
+  					</li>
+  					<li>
+  						<div class="divider"></div>
+  					</li>
+  					<li>
+  						<a href="#!" class = "waves-effect"><i class="material-icons">delete</i>Fiók Törlése</a>
+  					</li>
 
-						<!--OPERATIONS WITH SERVICES-->
-						<li>
-							<a class="subheader red-text">Műveletek csomagokkal</a>
-						</li>
-						<li>
-							<div class="divider"></div>
-						</li>
-						<li>
-							<a href="#!" class = "waves-effect"><i class="material-icons">playlist_add</i>Hosszabbítás</a>
-						</li>
-						<li>
-							<div class="divider"></div>
-						</li>
-						<li>
-							<a href="#!" class = "waves-effect"><i class="material-icons">edit</i>Módosítás</a>
-						</li>
+  					<!--OPERATIONS WITH SERVICES-->
+  					<li>
+  						<a class="subheader red-text">Műveletek csomagokkal</a>
+  					</li>
+  					<li>
+  						<div class="divider"></div>
+  					</li>
+  					<li>
+  						<a href="#!" class = "waves-effect"><i class="material-icons">playlist_add</i>Hosszabbítás</a>
+  					</li>
+  					<li>
+  						<div class="divider"></div>
+  					</li>
+  					<li>
+  						<a href="#!" class = "waves-effect"><i class="material-icons">edit</i>Módosítás</a>
+  					</li>
 
-						<!--OTHER-->
-						<li>
-							<div class="divider"></div>
-						</li>
-						<li>
-							<a href="index.html" class = "waves-effect"><i class="material-icons">exit_to_app</i>Kilépés</a>
-						</li>
-						<li>
-							<div class="divider"></div>
-						</li>
+  					<!--OTHER-->
+  					<li>
+  						<div class="divider"></div>
+  					</li>
+  					<li>
+  						<a href="index.html" class = "waves-effect"><i class="material-icons">exit_to_app</i>Kilépés</a>
+  					</li>
+  					<li>
+  						<div class="divider"></div>
+  					</li>
 
-       				</ul>
-       				<a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons white-text">menu</i></a>
-       			</div>     <!--END OF SIDEBAR-->
-       		</nav>
-       	</div>     <!--END OF NAW WRAPPER-->
-    </nav>
+   				</ul>
+     				<a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons white-text">menu</i></a>
+     			</div>     <!--END OF SIDEBAR-->
+     		</nav>
+     	</div>     <!--END OF NAW WRAPPER-->
+  </nav>
   </br>
 
 	<div class="container">
