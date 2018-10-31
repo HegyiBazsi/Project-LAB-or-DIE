@@ -1,0 +1,27 @@
+ $(document).ready(function(){
+  // Init Carousel
+  $('.carousel').carousel();
+
+  // Init Carousel Slider
+  $('.carousel.carousel-slider').carousel({fullWidth:true});
+
+  // Fire off toast
+  //Materialize.toast('Hello World', 3000);
+
+  // Init Slider
+  $('.slider').slider();
+
+  // Init Modal
+  $('.modal').modal();
+
+  // Init Sidenav
+  $('.button-collapse').sideNav
+				(
+					{
+						menuWidth: 300, // Default is 300
+						edge: 'left', // Choose the horizontal origin
+						closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+						draggable: true, // Choose whether you can drag to open on touch screens,
+					}
+				);
+});
