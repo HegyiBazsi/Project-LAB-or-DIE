@@ -1,7 +1,9 @@
 <?php
 //-----------------------------------user sub update form handler--------------------------------------------------------------
-if (isset($_POST['custid']))
+if(isset($_POST['packupdate']))
 {
+	$packupdate=$_POST['packupdate'];
+	var_dump($packupdate);
 	include "php/connect.php";
   //------------------get data from post----------------------------------------------------------------------------------
   $internetupdate = $_POST['Internetupdate'];
@@ -64,52 +66,131 @@ if (isset($_POST['custid']))
 	$sql = "UPDATE `subscription_customers` SET `InternetPackID`='$newinternetid' , `TelPackID`='$newtelefonid' , `TVPackID`='$newtvid' WHERE `CustomerID`=$custid";
 	$resultset = mysqli_query($mysqllink, $sql ) or die("update data transfer error: ".mysqli_error($mysqllink));
 
-  //------get customer data back----------------------------------------
-  $sql="SELECT * FROM `subscription_customers` WHERE `CustomerID` = $custid";
-	$resultset = mysqli_query($mysqllink,$sql);
-	$subrow=mysqli_fetch_row($resultset);
-	if($subrow != NULL)
+  //------get customer data back to return to user.php or admin.php----------------------------------------
+	if($site=="user")
 	{
-		$sql="SELECT * FROM `customers` WHERE `ID` = $custid";
-		$resultset = mysqli_query($mysqllink, $sql );
-		$row=mysqli_fetch_row($resultset);
-		if($row != NULL)
+		$sql="SELECT * FROM `subscription_customers` WHERE `CustomerID` = $custid";
+		$resultset = mysqli_query($mysqllink,$sql);
+		$subrow=mysqli_fetch_row($resultset);
+		if($subrow != NULL)
 		{
-			$name=$row[2]." ".$row[1];
-			$email=$row[9];
-			$password=$row[10];
-			session_start();
-			$_SESSION["name"] = $name;
-			$_SESSION["email"] = $email;
-			$_SESSION["password"] = $password;
-			$_SESSION["id"] = $custid;
-			header('Location: user.php');
+			$sql="SELECT * FROM `customers` WHERE `ID` = $custid";
+			$resultset = mysqli_query($mysqllink, $sql );
+			$row=mysqli_fetch_row($resultset);
+			if($row != NULL)
+			{
+				$name=$row[2]." ".$row[1];
+				$email=$row[9];
+				$password=$row[10];
+				session_start();
+				$_SESSION["name"] = $name;
+				$_SESSION["email"] = $email;
+				$_SESSION["password"] = $password;
+				$_SESSION["id"] = $custid;
+				header('Location: user.php');
+			}
 		}
 	}
+	else
+	{
+		header('Location: admin.php');
+	}
 }
-elseif(isset($_POST['userupdate']))
+if(isset($_POST['userupdate']))
 {
-	$custid = $_POST['custid'];
+	include "php/connect.php";
+
+
+	$userupdate=$_POST['userupdate'];
+	//var_dump($userupdate);
+	$custid = intval($_POST['custid']);
+	//var_dump($custid);
   $site = $_POST['sourcesite'];
+
+
+	$sql="SELECT `FirstName`,`LastName`,`Telnum`,`Email`,`Password` FROM `customers` WHERE `ID`=$custid";
+	$resultset = mysqli_query($mysqllink, $sql ) or die("update data transfer error: ".mysqli_error($mysqllink));
+	$userinforow=mysqli_fetch_row($resultset);
+	$fname=$userinforow[0];
+	$lname=$userinforow[1];
+	$telnum=$userinforow[2];
+	$email=$userinforow[3];
+	$password=$userinforow[4];
+
+	//---------------------updateuser form data extraction and update handler--------------------------------------
 	if(isset($_POST['fnameupdate']))
 	{
-		$fname=$_POST['fnameupdate'];
-		$sql = "UPDATE `customers` SET `FirstName`='$fname' WHERE `ID`=$custid";
+		$fnameupdate=$_POST['fnameupdate'];
+		var_dump($fnameupdate);
+		$sql = "UPDATE `customers` SET `FirstName`='$fnameupdate', `LastName`='$lname',`Telnum`='$telnum',`Email`='$email',`Password`='$password' WHERE `ID`=$custid";
 		$resultset = mysqli_query($mysqllink, $sql ) or die("update data transfer error: ".mysqli_error($mysqllink));
 	}
+
 	if(isset($_POST['lnameupdate']))
 	{
-		$lname=$_POST['lnameupdate'];
-		$sql = "UPDATE `customers` SET `LastName`=$lname; WHERE `ID`=$custid";
+		$lnameupdate=$_POST['lnameupdate'];
+		var_dump($lnameupdate);
+		$sql = "UPDATE `customers` SET `FirstName`='$fname', `LastName`='$lnameupdate',`Telnum`='$telnum',`Email`='$email',`Password`='$password' WHERE `ID`=$custid";
 		$resultset = mysqli_query($mysqllink, $sql ) or die("update data transfer error: ".mysqli_error($mysqllink));
 	}
-	elseif()
-	{
-		
-	}
-	elseif()
-	{
 
+	if(isset($_POST['emailupdate']))
+	{
+		$emailupdate=$_POST['emailupdate'];
+		var_dump($emailupdate);
+		$sql = "UPDATE `customers` SET `FirstName`='$fname', `LastName`='$lname',`Telnum`='$telnum',`Email`='$emailupdate',`Password`='$password' WHERE `ID`=$custid";
+		$resultset = mysqli_query($mysqllink, $sql ) or die("update data transfer error: ".mysqli_error($mysqllink));
+	}
+
+	if(isset($_POST['passwordupdate']) && isset($_POST['passwordupdatecheck']))
+	{
+		$passwordupdate=$_POST['passwordupdate'];
+		$passwordupdatecheck=$_POST['passwordupdatecheck'];
+		var_dump($passwordupdate);
+		if($passwordupdate===$passwordupdatecheck)
+		{
+			$sql = "UPDATE `customers` SET `FirstName`='$fname', `LastName`='$lname',`Telnum`='$telnum',`Email`='$email',`Password`='$passwordupdate' WHERE `ID`=$custid";
+			$resultset = mysqli_query($mysqllink, $sql ) or die("update data transfer error: ".mysqli_error($mysqllink));
+		}
+
+	}
+
+	if(isset($_POST['telnumupdate']))
+	{
+		$telnumupdate=$_POST['telnumupdate'];
+		var_dump($telnumupdate);
+		$sql = "UPDATE `customers` SET `FirstName`='$fname', `LastName`='$lname',`Telnum`='$telnumupdate',`Email`='$email',`Password`='$password' WHERE `ID`=$custid";
+		$resultset = mysqli_query($mysqllink, $sql ) or die("update data transfer error: ".mysqli_error($mysqllink));
+	}
+
+	//------get customer data back to return to user.php or admin.php----------------------------------------
+	if($site=="user")
+	{
+		$sql="SELECT * FROM `subscription_customers` WHERE `CustomerID` = $custid";
+		$resultset = mysqli_query($mysqllink,$sql);
+		$subrow=mysqli_fetch_row($resultset);
+		if($subrow != NULL)
+		{
+			$sql="SELECT * FROM `customers` WHERE `ID` = $custid";
+			$resultset = mysqli_query($mysqllink, $sql );
+			$row=mysqli_fetch_row($resultset);
+			if($row != NULL)
+			{
+				$name=$row[2]." ".$row[1];
+				$email=$row[9];
+				$password=$row[10];
+				session_start();
+				$_SESSION["name"] = $name;
+				$_SESSION["email"] = $email;
+				$_SESSION["password"] = $password;
+				$_SESSION["id"] = $custid;
+				header('Location: user.php');
+			}
+		}
+	}
+	else
+	{
+		header('Location: admin.php');
 	}
 }
 ?>

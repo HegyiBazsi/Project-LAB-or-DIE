@@ -61,7 +61,7 @@
 						<div class="divider"></div>
 					</li>
 					<li>
-						<a href="#!" class = "waves-effect"><i class="material-icons">delete</i>Fiók Törlése</a>
+						<a href="deleteaccount.php?custid=<?php echo $id ?>" class = "waves-effect"><i class="material-icons">delete</i>Fiók Törlése</a>
 					</li>
 					<!--OTHER-->
 					<li>
@@ -295,8 +295,10 @@
 										}
 										echo '</select>';
 										$sourcesite="user";
+										$packupdate="yes";
 										echo '<input type="hidden" name="custid" value="'.$id.'"></input>';
 										echo '<input type="hidden" name="sourcesite" value="'.$sourcesite.'"></input>';
+										echo '<input type="hidden" name="packupdate" value="'.$packupdate.'"></input>';
 									?>
 								</div>
 							</td>
@@ -325,7 +327,7 @@
 							<td>
 							</td>
 							<td>
-								<button class="btn btn-large blue" type="submit" value="Regisztáció" class="waves-effect waves-light btn center">Módosítás</button>
+								<button class="btn btn-large blue" type="submit" value="Módosítás" class="waves-effect waves-light btn center">Módosítás</button>
 							</td>
 							<td>
 							</td>
@@ -353,16 +355,16 @@
 							<tr>
 								<td>
 									<div class="input-field col s12">
-										<input type="text" name="fnameupdate" size="30" />
-										<label>Vezetéknév *</label>
+										<input type="text" name="lnameupdate" size="30" />
+										<label>Új Vezetéknév</label>
 									</div>
 								</td>
 								<td>
 								</td>
 								<td>
 									<div class="input-field col s12">
-										<input type="text" name="lnameupdate" size="30" />
-										<label>Keresztnév *</label>
+										<input type="text" name="fnameupdate" size="30" />
+										<label>Új Keresztnév</label>
 									</div>
 								</td>
 							</tr>
@@ -377,28 +379,40 @@
 								</td>
 								<td>
 									<div class="input-field col s12">
+										<input type="text" name="telnumupdate" size="30" />
+										<label>Új telefonszám (+36xx... formában)</label>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="input-field col s12">
 										<input type="text" name="passwordupdate" size="30" />
 										<label>Új jelszó</label>
 									</div>
 								</td>
-							</tr>
-							<tr>
 								<td>
 								</td>
 								<td>
 									<div class="input-field col s12">
-										<input type="text" name="telnumupdate" size="30" />
-										<label>Új telefonszám</label>
+										<input type="text" name="passwordupdatecheck" size="30" />
+										<label>Új jelszó megerősítése</label>
 									</div>
 								</td>
-								<td>
-								</td>
+
 							</tr>
+							<?php
+								$sourcesite="user";
+								$userupdate="userupdate";
+								echo '<input type="hidden" name="custid" value="'.$id.'"></input>';
+								echo '<input type="hidden" name="sourcesite" value="'.$sourcesite.'"></input>';
+								echo '<input type="hidden" name="userupdate" value="'.$userupdate.'"></input>';
+							?>
 							<tr>
 								<td>
 								</td>
 								<td style="text-align: center;">
-									<button class="btn btn-large blue" type="submit" value="Regisztáció" class="waves-effect waves-light btn center">Módosítás</button>
+									<button class="btn btn-large blue" type="submit" value="Módosítás" class="waves-effect waves-light btn center">Módosítás</button>
 								</td>
 								<td>
 								</td>
@@ -406,13 +420,7 @@
 						</form>
 					</thead>
 				</table>
-				<?php
-					$sourcesite="user";
-					$userupdate="yes";
-					echo '<input type="hidden" name="custid" value="'.$id.'"></input>';
-					echo '<input type="hidden" name="sourcesite" value="'.$sourcesite.'"></input>';
-					echo '<input type="hidden" name="sourcesite" value="'.$userupdate.'"></input>';
-				?>
+
 			</div>
 			<!-- END OF USER UPDATE -->
 		</div><!--ROW-->

@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="hu">
 	<?php
-	  session_start();
-		$id=$_SESSION["delid"];
+	if(isset($_GET['custid']))
+	{
+		$custid=intval($_GET['custid']);
+		//var_dump($custid);
+	}
 
 	?>
 	<head>
@@ -11,7 +14,7 @@
   	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	</head>
 
-	<body>
+	<body background="./img/deleteaccount/deleteaccbackground.png">
 
   <div class="container">
 
@@ -28,25 +31,14 @@
         </div>
         <div class="modal-body">
           <p>Biztosan törölni kívánja fiókját?</p>
-          <p>Ha igen akkor az értettem négyzet kipipálása után a tovább gombra nyomással ezt megerősítheti és vissza lép a főoldalra, a négyzet kipilása nélkül vissza léphet az oldalára!</p>
+          <p>Ha igen akkor  a tovább gombra nyomással ezt megerősítheti és vissza lép a főoldalra!</p>
         </div>
         <div class="modal-footer">
-					<form action="post.php" method="post">
-						<?php
-						  session_start();
-							$delid=$_SESSION["delid"];
-							echo '<input type="hidden" name="delete" value="true">';
-							echo '<input type="hidden" name="id" value="$delid">';
-						?>
+					<form action="" method="post">
 
 	         	<button type="submit" class="btn btn-default" data-dismiss="modal" h>Tovább</button>
 					</form>
-					<form action="post.php" method="post">
-						<?php
-						  session_start();
-		          $_SESSION["delemail"] = $_SESSION["email"];
-							$_SESSION["delpassword"] = $_SESSION["password"];
-						?>
+					<form action="user.php" method="post">
 	         	<button type="submit" class="btn btn-default" data-dismiss="modal" h>Vissza</button>
 					</form>
         </div>

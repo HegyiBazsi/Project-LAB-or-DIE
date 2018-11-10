@@ -3,9 +3,9 @@
     // az adatbazis kapcsolat parameterei
 
     $host="localhost";
-    $user="hbszakdoga";
+    $user="plidrendszer";
     $pass="projektlab";
-    $db="hbszakdoga";
+    $db="plidrendszer";
 
     // adatbazis kapcsolat letrehozasa
     $mysqllink=mysqli_connect($host,$user,$pass) or die("Could not connect");
