@@ -87,7 +87,7 @@ if(isset($_POST['packupdate']))
 				$_SESSION["email"] = $email;
 				$_SESSION["password"] = $password;
 				$_SESSION["id"] = $custid;
-				header('Location: user.php');
+				//header('Location: user.php');
 			}
 		}
 	}
@@ -109,8 +109,8 @@ if(isset($_POST['userupdate']))
 
 
 	$sql="SELECT `FirstName`,`LastName`,`Telnum`,`Email`,`Password` FROM `customers` WHERE `ID`=$custid";
-	$resultset = mysqli_query($mysqllink, $sql ) or die("update data transfer error: ".mysqli_error($mysqllink));
-	$userinforow=mysqli_fetch_row($resultset);
+	$previousdata = mysqli_query($mysqllink, $sql ) or die("update data transfer error: ".mysqli_error($mysqllink));
+	$userinforow=mysqli_fetch_row($previousdata);
 	$fname=$userinforow[0];
 	$lname=$userinforow[1];
 	$telnum=$userinforow[2];
@@ -118,47 +118,76 @@ if(isset($_POST['userupdate']))
 	$password=$userinforow[4];
 
 	//---------------------updateuser form data extraction and update handler--------------------------------------
-	if(isset($_POST['fnameupdate']))
+	if(isset($_POST['fnameupdate']) && (strlen($_POST['fnameupdate'])>0))
 	{
 		$fnameupdate=$_POST['fnameupdate'];
+
+		print_r('fname:');
 		var_dump($fnameupdate);
+		echo '</br>';
+
 		$sql = "UPDATE `customers` SET `FirstName`='$fnameupdate', `LastName`='$lname',`Telnum`='$telnum',`Email`='$email',`Password`='$password' WHERE `ID`=$custid";
 		$resultset = mysqli_query($mysqllink, $sql ) or die("update data transfer error: ".mysqli_error($mysqllink));
 	}
 
-	if(isset($_POST['lnameupdate']))
+	if(isset($_POST['lnameupdate']) && (strlen($_POST['lnameupdate'])>0))
 	{
 		$lnameupdate=$_POST['lnameupdate'];
+
+		print_r('lname:');
 		var_dump($lnameupdate);
+		echo '</br>';
+
 		$sql = "UPDATE `customers` SET `FirstName`='$fname', `LastName`='$lnameupdate',`Telnum`='$telnum',`Email`='$email',`Password`='$password' WHERE `ID`=$custid";
 		$resultset = mysqli_query($mysqllink, $sql ) or die("update data transfer error: ".mysqli_error($mysqllink));
 	}
 
-	if(isset($_POST['emailupdate']))
+	if(isset($_POST['emailupdate']) && (strlen($_POST['emailupdate'])>0))
 	{
 		$emailupdate=$_POST['emailupdate'];
+
+		print_r('email:');
 		var_dump($emailupdate);
+		echo '</br>';
+
 		$sql = "UPDATE `customers` SET `FirstName`='$fname', `LastName`='$lname',`Telnum`='$telnum',`Email`='$emailupdate',`Password`='$password' WHERE `ID`=$custid";
 		$resultset = mysqli_query($mysqllink, $sql ) or die("update data transfer error: ".mysqli_error($mysqllink));
 	}
 
-	if(isset($_POST['passwordupdate']) && isset($_POST['passwordupdatecheck']))
+	if(isset($_POST['passwordupdate']) && isset($_POST['passwordupdatecheck'])
+	   && (strlen($_POST['passwordupdate'])>0) && (strlen($_POST['passwordupdatecheck'])>0))
 	{
 		$passwordupdate=$_POST['passwordupdate'];
 		$passwordupdatecheck=$_POST['passwordupdatecheck'];
+
+		print_r('password:');
 		var_dump($passwordupdate);
+		echo '</br>';
+
+		print_r('passwordcheck:');
+		var_dump($passwordupdatecheck);
+		echo '</br>';
+
 		if($passwordupdate===$passwordupdatecheck)
 		{
 			$sql = "UPDATE `customers` SET `FirstName`='$fname', `LastName`='$lname',`Telnum`='$telnum',`Email`='$email',`Password`='$passwordupdate' WHERE `ID`=$custid";
 			$resultset = mysqli_query($mysqllink, $sql ) or die("update data transfer error: ".mysqli_error($mysqllink));
 		}
+		else
+		{
+			echo "Nem egyezik a ket jelszo";
+		}
 
 	}
 
-	if(isset($_POST['telnumupdate']))
+	if(isset($_POST['telnumupdate']) && (strlen($_POST['telnumupdate'])>0))
 	{
 		$telnumupdate=$_POST['telnumupdate'];
+
+		print_r('telnum:');
 		var_dump($telnumupdate);
+		echo '</br>';
+
 		$sql = "UPDATE `customers` SET `FirstName`='$fname', `LastName`='$lname',`Telnum`='$telnumupdate',`Email`='$email',`Password`='$password' WHERE `ID`=$custid";
 		$resultset = mysqli_query($mysqllink, $sql ) or die("update data transfer error: ".mysqli_error($mysqllink));
 	}

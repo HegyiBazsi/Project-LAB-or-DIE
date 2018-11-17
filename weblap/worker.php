@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+<html lang="hu">
+  <?php
+    session_start();
+    $workerid=$_SESSION["workerid"];
+    $position=$_SESSION["position"];
+    $name=$_SESSION["name"];
+    $email=$_SESSION["email"];
+  ?>
+  <head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+    <link rel="icon" href="./img/admin/admin2.png">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  </head>
+
+  <body>
+
+    <nav class="navbar-fixed-top">
+    <div class="nav-wrapper">
+      <a href="#!" class="brand-logo center white-text">P-LID</a>
+      <nav class="red" role="navigation">
+      <div class="nav-wrapper container">
+        <!--SIDE BAR-->
+        <ul id="slide-out" class="side-nav">
+          <li>
+            <div class="user-view">
+            <div class="background">
+              <img src="img/admin/back.jpg">
+            </div>
+            <a href="#!user"><img class="circle" src="img/admin/admin.jpg"></a>
+            <?php
+              echo '<a><span class="white-text">'.$name.'</span></a>';
+              echo '<a><span class="white-text">'.$email.'</span></a>';
+            ?>
+            </div>
+          </li>
+          <!--OTHER-->
+          <li>
+            <div class="divider"></div>
+          </li>
+          <li>
+            <a href="#!" class = "waves-effect"><i class="material-icons">exit_to_app</i>Kilépés</a>
+          </li>
+          <li>
+            <div class="divider"></div>
+          </li>
+        </ul>
+        <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons white-text">menu</i></a>
+      </div>
+      <!--END OF SIDEBAR-->
+      </nav>
+    </div>
+    <!--END OF NAW WRAPPER-->
+    </nav>
+
+    <div class="container">
+    <!-- TABS -->
+    <div class="row">
+    <div class="col s12">
+    <ul class="tabs">
+    <li class="tab col m4">
+    <a href="#test1">Internet</a>
+    </li>
+    <li class="tab col m4">
+    <a href="#test2">Televízió</a>
+    </li>
+    <li class="tab col  m4">
+    <a href="#test3">Telefon</a>
+    </li>
+    </ul>
+    </div>
+
+    <!--TEST 1 - INTERNET-->
+    <div id="test1" class="col s12">
+    <table class="striped centered">
+    <thead>
+    <tr>
+    <th>Csomagnév</th>
+    <th>Letöltési sebesség</th>
+    <th>Feltöltési sebesség</th>
+    <th>Ár</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr>
+    <!--M Y S Q L-->
+    </tr>
+    <tr>
+    <form class="" action="post.php" method="post">
+    <!--https://www.sitepoint.com/community/t/populate-dropdown-menu-from-mysql-database/6481/7-->
+    </form>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+
+    <!--TEST2 - TV-->
+    <div id="test2" class="col s12">
+    <table class="striped centered">
+    <thead>
+    <tr>
+    <th>Csomagnév</th>
+    <th>Valami1</th>
+    <th>Valami2</th>
+    <th>Ár</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr>
+    <!--M Y S Q L-->
+    </tr>
+    <tr>
+    <form class="" action="post.php" method="post">
+    <!--https://www.sitepoint.com/community/t/populate-dropdown-menu-from-mysql-database/6481/7-->
+    </form>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+
+    <!--TEST 3 - TV-->
+    <div id="test3" class="col s12">
+    <table class="striped centered">
+    <thead>
+    <tr>
+    <th>Csomagnév</th>
+    <th>Valami1</th>
+    <th>Valami2</th>
+    <th>Ár</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr>
+    <!--M Y S Q L-->
+    </tr>
+    <tr>
+    <form class="" action="post.php" method="post">
+    <!--https://www.sitepoint.com/community/t/populate-dropdown-menu-from-mysql-database/6481/7-->
+    </form>
+    </tr>
+    </tbody>
+    </table>
+    </div><!--ROW-->
+
+    <!--2nd ROW-->
+    <div class="row">
+    <div class="col s12">
+    <ul class="tabs">
+    <li class="tab col m6">
+    <a href="#test4">Felhasználók</a>
+    </li>
+    <li class="tab col m6">
+    <a href="#test5">Szerződések</a>
+    </li>
+    </ul>
+    </div>
+
+    <!--TEST 4 - ÜGYFÉL-->
+    <div id="test4" class="col s12">
+    <table class="highlight centered">
+    <thead>
+    <tr>
+    <th>Vezetéknév</th>
+    <th>Keresztnév</th>
+    <th>Telefonszám</th>
+    <th>E-mail cím</th>
+    <th>Irányítószám</th>
+    <th>Város</th>
+    <th>Utca</th>
+    <th>Házszám</th>
+    <th>Jelszó</th>
+    <th>Születési Dátum</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr>
+    <!--M Y S Q L-->
+    </tr>
+    <tr>
+    <form class="" action="post.php" method="post">
+    <!--https://www.sitepoint.com/community/t/populate-dropdown-menu-from-mysql-database/6481/7-->
+    </form>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+
+    <div id="test5" class="col s12">
+    <table class="highlight centered">
+    <thead>
+    <tr>
+    <th>Adatok1</th>
+    <th>Adatok2</th>
+    <th>Adatok3</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr>
+    <!--M Y S Q L-->
+    </tr>
+    <tr>
+    <form class="" action="post.php" method="post">
+    <!--https://www.sitepoint.com/community/t/populate-dropdown-menu-from-mysql-database/6481/7-->
+    </form>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    </div>
+    </div><!-- ./container -->
+
+    <div style="height:500px"></div>
+
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+    <script src="js/admin.js"></script>
+  </body>
+</html>

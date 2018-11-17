@@ -240,6 +240,16 @@
   					$szerzodott="nincs szerződése";
   				}
   			}
+
+        //get telnum from user table---------------------------------------------------------------------------
+        include "php/connect.php";
+  			$sql="SELECT `Telnum` FROM `customers` WHERE `ID` = $id";
+  			$resultset = mysqli_query($mysqllink, $sql ) or die("subtime sql no result: ".mysqli_error($mysqllink));
+  			$subrow=mysqli_fetch_row($resultset);
+  			if($subrow != NULL)
+  			{
+          $telnum=$subrow[0];
+        }
   			//all gathered data to session
   			$_SESSION["internetname"]=$internetname;
   			$_SESSION["telname"]=$telname;
@@ -251,6 +261,7 @@
         $_SESSION["telprice"]=$telprice;
         $_SESSION["tvprice"]=$tvprice;
         $_SESSION["summonthly"]=$summonthly;
+        $_SESSION["telnum"]=$telnum;
         //var_dump($internetname);
         //var_dump($telname);
         //var_dump($tvname);
@@ -274,8 +285,39 @@
   	}
 
   }
+  elseif(isset($_POST["deleteuser"]))
+  {
+    include "php/connect.php";
+    $custid=$_POST["custid"];
+    $sql="SELECT `FirstName`, `LastName`, `BirthDate`, `CityZip`, `City`, `Street`, `Address`, `Telnum`, `Email`, `Password` FROM `customers` WHERE `ID`='$custid'";
+    $resultset = mysqli_query($mysqllink, $sql ) or die("new sub 0 subtime data transfer error: ".mysqli_error($mysqllink));
+    $subrow=mysqli_fetch_row($resultset);
+    if($subrow != NULL)
+    {
+      $fname=$subrow[0];
+      $lname=$subrow[1];
+      $birthdate=$subrow[2];
+      $zip=intval($subrow[3]);
+      $city=$subrow[4];
+      $street=$subrow[5];
+      $address=intval($subrow[6]);
+      $telnum=$subrow[7];
+      $email=$subrow[8];
+      $password=$subrow[9];
+    }
+    //copy customer to previous customers table-----------------------------------------------------------------------------
+    $sql="INSERT INTO `deletedcustomers`(`ID`,`FirstName`, `LastName`, `BirthDate`, `CityZip`, `City`, `Street`, `Address`, `Telnum`, `Email`, `Password`)
+          VALUES ('$custid','$fname','$lname',$birthdate,$zip,'$city','$street',$address,'$telnum','$email','$password')";
+    $resultset = mysqli_query($mysqllink, $sql ) or die("new sub 0 subtime data transfer error: ".mysqli_error($mysqllink));
+    //remove from customers-------------------------------------------------------------------------------------------------
+    $sql = "DELETE FROM `customers` WHERE `ID`='$custid'";
+    $resultset = mysqli_query($mysqllink, $sql ) or die("new sub 0 subtime data transfer error: ".mysqli_error($mysqllink));
+    echo "Sikeresen törölve lett a fiókja.";
+    sleep(5);
+    header('Location: index.html');
+  }
   //--------------------------------end of user.php code-------------------------------------------------------------------------
-
+  //----------------------------user account deletion handler-----------------------------------------------------
   //-----------------------end of login------------------------------------------------------------------------------------------
   else
   {

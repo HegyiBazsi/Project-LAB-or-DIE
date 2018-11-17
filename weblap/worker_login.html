@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--HEAD-->
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<title>P-LID</title>
+
+<!-- CSS  -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+	<link href="css/signin.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+	<link href="css/indexstyle.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+	<link rel="icon" href="./img/signin/login.png">
+</head>
+
+<body>
+	<div class="form-box" style="margin-top:100px">
+		<div class="head">Bejelentkezés</div>
+		<form action=adminpost.php id="login-form" method=post>
+			<div class="msg"></div>
+			<!--USER-->
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="material-icons">person</i>
+                </span>
+                <div class="form-line">
+					<input type="text" class="form-control" name="email" placeholder="Felhasználónév" required autofocus>
+                </div>
+            </div>
+			<!--PASSWORD-->
+            <div class="input-group">
+                <span class="input-group-addon">
+                   <i class="material-icons">lock</i>
+                </span>
+				<div class="form-line">
+                    <input type="password" class="form-control" name="password" placeholder="Jelszó" required>
+                </div>
+            </div>
+
+			<div class="row">
+			<!--REMEMBER ME-->
+                <div class="col-xs-8 p-t-5">
+                    <input type="checkbox" name="rememberme" id="rememberme">
+                    <label for="rememberme">Jegyezzen meg</label>
+                </div>
+				<br>
+			<!--LOGIN-->
+				<div class="col s12 center">
+                    <button class="btn btn-block waves-effect orange" type="submit">Belépés</button>
+                </div>
+			</div>
+            <div class="row">
+			<!--REG-->
+                <div class="col s12 m3">
+                    <a href="registration.html">Regisztráljon most!</a>
+                </div>
+
+			<!--FORGOT PASSWORD-->
+				<div class="col s12 m3 right">
+					<a href="forgot_password.html">Elfelejtette jelszavát?</a>
+				</div>
+			</div>
+		</form>
+	</div>
+
+
+<!--SCRIPT-->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script type="text/javascript"></script>
+	<script src="js/sign_in.js"></script>
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="js/materialize.js"></script>
+	<script src="js/init.js"></script>
+</body>
+</html>

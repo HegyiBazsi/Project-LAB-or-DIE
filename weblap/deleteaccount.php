@@ -34,11 +34,42 @@
           <p>Ha igen akkor  a tovább gombra nyomással ezt megerősítheti és vissza lép a főoldalra!</p>
         </div>
         <div class="modal-footer">
-					<form action="" method="post">
-
+					<form action="post.php" method="post">
+						<?php
+						$deleteuser="yes";
+						echo '<input type="hidden" name="custid" value="'.$custid.'"></input>';
+						echo '<input type="hidden" name="deleteuser" value="'.$deleteuser.'"></input>';
+						?>
 	         	<button type="submit" class="btn btn-default" data-dismiss="modal" h>Tovább</button>
 					</form>
 					<form action="user.php" method="post">
+						<?php
+							//get data back to user.
+							include "php/connect.php";
+							$sql="SELECT * FROM `subscription_customers` WHERE `CustomerID` = $custid";
+							$resultset = mysqli_query($mysqllink,$sql);
+							$subrow=mysqli_fetch_row($resultset);
+							if($subrow != NULL)
+							{
+								$sql="SELECT * FROM `customers` WHERE `ID` = $custid";
+								$resultset = mysqli_query($mysqllink, $sql );
+								$row=mysqli_fetch_row($resultset);
+								if($row != NULL)
+								{
+									$name=$row[2]." ".$row[1];
+									$telnum=$row[8];
+									$email=$row[9];
+									$password=$row[10];
+									session_start();
+									$_SESSION["name"] = $name;
+									$_SESSION["email"] = $email;
+									$_SESSION["password"] = $password;
+									$_SESSION["id"] = $custid;
+									$_SESSION["telnum"]=$telnum;
+								}
+							}
+							//var_dump($custid);
+						?>
 	         	<button type="submit" class="btn btn-default" data-dismiss="modal" h>Vissza</button>
 					</form>
         </div>

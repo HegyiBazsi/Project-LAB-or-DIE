@@ -16,6 +16,7 @@
 	$datefrom=$_SESSION["datefrom"];
 	$dateto=$_SESSION["dateto"];
 	$szerzodott=$_SESSION["szerzodott"];
+	$telnum=$_SESSION["telnum"];
 	//var_dump($telname);
 	//var_dump($tvname);
 	//var_dump($tvprice);
@@ -53,6 +54,7 @@
 							<?php
 								echo '<a><span class="white-text">'.$name.'</span></a>';
 								echo '<a><span class="white-text">'.$email.'</span></a>';
+								echo '<a><span class="white-text">'.$telnum.'</span></a>';
 							?>
 						</div>
 					</li>
@@ -198,6 +200,7 @@
 
 				<tbody>
 					<form action="userupdate.php" method="post">
+
 						<tr>
 							<td>
 								<div class="input-field blue-text col s12">
